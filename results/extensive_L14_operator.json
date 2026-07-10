@@ -1,0 +1,41 @@
+{
+  "L": 14,
+  "k": 3,
+  "code_dim": 8,
+  "n_tower": 15,
+  "measure": "operator",
+  "rows": [
+    {
+      "p": 0.0,
+      "k": 3,
+      "scar_density": 1.000000000000006,
+      "thermal_density": 0.9999999999999998,
+      "thermal_density_sd": 1.524844224711686e-14,
+      "d_density": 6.217248937900877e-15
+    },
+    {
+      "p": 0.04,
+      "k": 3,
+      "scar_density": 0.3469270828819711,
+      "thermal_density": 0.3295821634030899,
+      "thermal_density_sd": 0.03619888553830383,
+      "d_density": 0.017344919478881227
+    },
+    {
+      "p": 0.08,
+      "k": 3,
+      "scar_density": 0.14747655958566677,
+      "thermal_density": 0.11385522038397558,
+      "thermal_density_sd": 0.026366251876703314,
+      "d_density": 0.03362133920169119
+    },
+    {
+      "p": 0.12,
+      "k": 3,
+      "scar_density": 0.07858546312723783,
+      "thermal_density": 0.04497800564691415,
+      "thermal_density_sd": 0.01700635172335858,
+      "d_density": 0.03360745748032368
+    }
+  ]
+}

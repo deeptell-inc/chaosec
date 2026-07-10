@@ -1,0 +1,375 @@
+\documentclass[aps,prxquantum,twocolumn,superscriptaddress,floatfix,longbibliography]{revtex4-2}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amssymb}
+\usepackage{bm}
+\usepackage{braket}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+\graphicspath{{../results/}}
+
+\newcommand{\CR}{\mathcal{C}_R}
+\newcommand{\Ic}{I_c}
+\newcommand{\Ztwo}{\mathbb{Z}_2}
+
+\begin{document}
+
+\title{Chaotic states outperform quantum many-body scars as codes under
+generic measurement: a refutation of scar-enhanced information protection}
+
+\author{Hikaru Wakaura}
+\altaffiliation{ORCID: 0000-0001-8381-8323}
+\email{h.wakaura@deeptell.jp}
+\affiliation{QIRI (Quantum Integrated Research Institute Inc.), Tokyo 107-0061, Japan}
+\author{Taiki Tanimae}
+\email{t.tanimae@deeptell.jp}
+\affiliation{QIRI (Quantum Integrated Research Institute Inc.), Tokyo 107-0061, Japan}
+
+\date{\today} 
+
+\begin{abstract} 
+% (1) introduction — all-fields scientist
+Monitored quantum many-body systems protect quantum information from
+projective measurements exactly when their unitary dynamics scramble it,
+placing the measurement-induced entanglement transition on the same footing as
+quantum error correction.
+% (2) background — related-field scientist
+Because the eigenstate thermalization hypothesis endows chaotic eigenstates with
+approximate Knill--Laflamme structure, it is natural to ask whether the
+\emph{non-thermal} eigenstates known as quantum many-body scars---atypically
+weakly entangled and dynamically coherent---form especially good codes.
+% (3) problem
+Whether scars protect quantum information better or worse than the surrounding
+thermal states under random measurement has not been settled quantitatively.
+% (4) main result — "Here we show"
+Here we show, by computing the reference-qubit coherent information of a logical
+qubit encoded in the PXP scar subspace versus an energy-matched thermal
+subspace under monitored dynamics, that thermal codes protect information
+\emph{better} than PXP scar codes under every measurement we test.
+% (5) comparison with prior work
+The scar disadvantage is mild for local measurement, is largest for collective
+measurements aligned with the emergent $\mathrm{su}(2)$ generator (which couples
+the code states), and---decisively---survives even a fine-tuned Casimir
+measurement for which the scar code is a nominal decoherence-free subspace,
+because approximate scars carry irreducible Casimir variance.
+% (6) generalized meaning
+These results confirm the eigenstate-thermalization-to-error-correction
+correspondence directly in the monitored-circuit setting and refute the
+hypothesis that scarring aids information protection against generic
+measurement. A second, exactly-solvable spin-1 model isolates the Casimir
+variance as the control parameter: only zero-variance \emph{exact} scars are
+protected by their Casimir, and even then a generic local measurement grants
+them no advantage.
+% (7) broad outlook
+They identify the code's spread in the measurement basis, not its athermality,
+as the resource for protection, and caution that weak-ergodicity-breaking
+subspaces are liabilities rather than assets for measurement-based quantum
+memories.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+
+% 大: broad topic everyone cares about
+The competition between scrambling unitary dynamics and local measurements
+drives a sharp transition in how much quantum information a many-body system
+retains~\cite{Li2018MIPT,Li2019,Skinner2019,Chan2019,Bao2020,Jian2020,Fisher2023}. This measurement-induced phase
+transition (MIPT) is now understood as a coding transition: below a critical
+measurement rate the dynamics act as an emergent quantum error-correcting code
+that hides logical information non-locally, protecting it from measurements that
+act as erasure errors~\cite{Choi2020,Gullans2020,Fan2021}. The order parameter
+is information-theoretic---the coherent information, or equivalently the
+entanglement of a reference qubit maximally entangled with the encoded
+information~\cite{Gullans2020,Gullans2020b,Qian2024}.
+
+% 中: narrowing toward the specific question
+The coding power of chaotic dynamics is inherited by chaotic \emph{eigenstates}.
+The eigenstate thermalization hypothesis (ETH) forces local operators to have
+smooth diagonal and exponentially small off-diagonal matrix
+elements~\cite{Deutsch1991,Srednicki1994,Rigol2008,DAlessio2016}, which is
+exactly the approximate Knill--Laflamme condition~\cite{KnillLaflamme1997};
+thermal eigenstates therefore form approximate codes whose error scales with the
+system's chaoticity~\cite{Brandao2019,BaoCheng2019,Qasim2025}. Quantum many-body scars are the
+conspicuous exception to ETH: a measure-zero tower of atypically weakly
+entangled, dynamically reviving eigenstates embedded in an otherwise thermal
+spectrum~\cite{Bernien2017,Turner2018,Turner2018b,Serbyn2021,Moudgalya2022}.
+Scars can be embedded in decoherence-free
+subspaces~\cite{Zanardi1997,Lidar1998,WangDFS2024}, and projective measurement can
+even enhance their revivals~\cite{Paviglianiti2025}, suggesting they might be
+privileged carriers of quantum information under monitoring.
+
+% 小 + However (only once) + In this study
+However, whether a logical qubit stored in the scar subspace is protected better
+or worse than one stored in the surrounding thermal bulk---at matched energy, in
+the same monitored dynamics, quantified as a channel capacity---has not been
+determined. In this study, we compute the reference-qubit coherent information
+$\CR$ of scar and thermal codes of the monitored PXP chain across local,
+collective, and Casimir measurement models. We find that thermal codes protect
+information better than scar codes in every case; that an apparent scar advantage
+seen against a single thermal reference is an artifact of an atypical baseline
+and vanishes under ensemble averaging; and that the scar's emergent-$\mathrm{
+su}(2)$ structure is a liability, not a shield, because its generator couples the
+code states and the scars' Casimir variance defeats even a fine-tuned
+decoherence-free encoding.
+
+% 大: impact
+The result establishes the ETH-to-error-correction correspondence as an operational
+statement about monitored circuits and removes weak-ergodicity-breaking subspaces
+from the menu of candidate measurement-robust quantum memories.
+
+\section{Model and diagnostics}
+
+We study the PXP chain of $L$ sites in the Rydberg-blockaded (constrained)
+Hilbert space of dimension $F(L{+}2)$ (Fibonacci), with
+\begin{equation}
+H = \sum_i P_{i-1}\, X_i\, P_{i+1}, \qquad P=\ket{0}\bra{0},
+\end{equation}
+whose $\Ztwo$ N\'eel state exhibits the canonical scar
+revivals~\cite{Bernien2017,Turner2018,Lin2019,Ho2019} (period
+$t\simeq4.7$, fidelity $\simeq0.74$ at $L=12$). We identify the $L{+}1$ scar-tower
+eigenstates by their anomalous overlap with $\ket{\Ztwo}$.
+
+A logical qubit is encoded in a two-dimensional subspace
+$\{\ket{0_L},\ket{1_L}\}$ and maximally entangled with a reference $R$,
+$\ket{\Psi_0}=(\ket{0}_R\ket{0_L}+\ket{1}_R\ket{1_L})/\sqrt2$. The system
+evolves by alternating steps of PXP evolution $e^{-iH\,dt}$ and random projective
+measurement; per quantum trajectory the joint state stays pure and the reference
+entanglement entropy $S_R=-\mathrm{Tr}\,\rho_R\log_2\rho_R\in[0,1]$ measures the
+surviving logical information. Its trajectory average
+\begin{equation}
+\CR(p) = \big\langle S_R \big\rangle_{\text{traj}}
+\end{equation}
+is the single-qubit coherent information of the monitored channel: $\CR\to1$
+recoverable, $\CR\to0$ lost. We take $dt=0.6$ and measurement probability $p$
+per site (local) or per operator (collective) per step. To remove the
+energy-mismatch confound, scar and thermal codes are built from eigenstates at
+the \emph{same} two energies; \textbf{the thermal baseline is averaged over an
+ensemble of $\sim\!10$--$20$ energy-matched thermal pairs}, without which a single
+atypical pair inverts the conclusion (Sec.~\ref{sec:results}).
+
+We study $L=10$--$18$ (constrained dimension up to $F(20)=6765$) with $40$
+evolution--measurement steps per trajectory and average $\CR$ over $120$--$400$
+Born-sampled quantum trajectories. Reported statistical error bars are the
+standard error of the mean over trajectories; the thermal band is the standard
+deviation of $\CR$ over the ensemble of energy-matched thermal pairs. All runs
+use fixed random seeds and are reproducible from the accompanying code.
+
+Statically we probe the Knill--Laflamme violation of a code under an error set
+$\{E_a\}$ through the logical leak $\langle 0_L|E_a|1_L\rangle$ and the
+distinguishability $\langle0_L|E_a|0_L\rangle-\langle1_L|E_a|1_L\rangle$.
+
+\paragraph{A model-independent criterion.}
+A projective measurement of a Hermitian operator $O$ leaves the encoded qubit
+untouched if and only if the code is an eigenspace of $O$ with a single shared
+eigenvalue, so that every spectral projector of $O$ acts on the code as a
+multiple of the identity. A measurement \emph{resolves}---and hence
+dephases---the code through either of two channels: \emph{(i) eigenvalue
+distinguishability}, when the logical states differ in their $O$-expectation or
+carry a nonzero $O$-variance, so their outcome distributions
+$P_a(o)=|\langle o|a_L\rangle|^2$ differ; or \emph{(ii) non-invariance}, when $O$
+carries the code onto itself, $\langle0_L|O|1_L\rangle\neq0$, coherently mixing
+the logical states. Equal mean and vanishing leak alone are insufficient---a
+residual variance already realizes channel (i)---so a decoherence-free subspace
+requires the logical states to be $O$-eigenstates sharing one eigenvalue. This
+condition is independent of the microscopic model and organizes the results
+below: thermal states, spread broadly and near-identically in a local basis, are
+close to optimal codes, while scars are penalized whenever the measured operator
+resolves their atypical structure through either channel.
+
+\section{Results}
+\label{sec:results}
+
+\paragraph{Thermal codes win; the apparent scar advantage is a baseline artifact.}
+Figure~\ref{fig:crossover} compares $\CR(p)$ for the scar code against the
+thermal ensemble. For both local-$Z$ and collective (staggered-$Z$) monitoring
+the scar curve lies \emph{below} the thermal-ensemble band at all $p$. A single
+nearest-in-energy thermal pair sits at the $0$th percentile of the ensemble
+($\CR=0.53$ versus ensemble mean $0.87$ at $L{=}14$, $p{=}0.10$, collective),
+which is why an unaveraged comparison spuriously favors the scar.
+
+\begin{figure}[t]
+\includegraphics[width=\linewidth]{corrected_crossover.png}
+\caption{\textbf{Thermal codes protect information better than scar codes.}
+Reference-qubit coherent information $\CR$ versus measurement rate $p$ for the
+scar code (red) and the thermal ensemble (blue; band is $\pm1\sigma$ over the
+ensemble) under local-$Z$ (left) and collective staggered-$Z$ (right) monitoring
+at $L=14$. The scar lies below the thermal band throughout.}
+\label{fig:crossover}
+\end{figure}
+
+\paragraph{The disadvantage persists to the largest accessible size.}
+Figure~\ref{fig:scaling} shows $\Delta\CR\equiv\CR^{\rm scar}-\langle\CR^{\rm
+therm}\rangle$ at $p=0.10$. It is negative for all $L=10$--$18$ and both
+channels: $-0.03$ to $-0.06$ (local) and $-0.25$ to $-0.32$ (collective), the
+band excluding zero. At the largest size $L=18$ (constrained dimension $6765$)
+it is $-0.05$ (local) and $-0.30$ (collective), essentially size-independent:
+the refutation is not a finite-size artifact.
+
+\begin{figure}[t]
+\includegraphics[width=\linewidth]{ensemble_scaling.png}
+\caption{\textbf{The scar disadvantage $\Delta\CR<0$ at every size.} Scar-minus-
+thermal coherent information at $p=0.10$ versus $L$ for local (grey) and
+collective (green) monitoring; shading is the thermal-ensemble spread.}
+\label{fig:scaling}
+\end{figure}
+
+We emphasize that this single-qubit comparison is the most favorable one for the
+scar: the scar tower is only $(L{+}1)$-dimensional, so it can host at most
+$\log_2(L{+}1)$ logical qubits---a sub-extensive capacity, against the
+exponentially large thermal bulk. A scar subspace therefore cannot support an
+extensive code even before dynamics; the per-qubit comparison already settled
+here is its best case, and it loses.
+
+To confirm this directly, we encode the \emph{maximal} scar code---all
+$k=\lfloor\log_2(L{+}1)\rfloor$ logical qubits, i.e. $2^k$ tower states
+maximally entangled with a $k$-qubit reference---and compare its protected-
+information density $S_R/k$ against a same-dimension thermal code under local
+monitoring (Fig.~\ref{fig:ext}). The scar loses at every rate: at $L=14$
+($k=3$), $\Delta(S_R/k)=-0.17,-0.14,-0.06$ at $p=0.02,0.04,0.08$, with the
+thermal ensemble tightly determined ($\sigma\lesssim0.01$), and the gap persists
+across $L=10,14,18$. The gap is even larger under collective staggered-$Z$
+monitoring ($\Delta(S_R/k)=-0.32$ to $-0.43$ at $L=14$), while under the
+fine-tuned Casimir $J^2$ the two codes are comparable ($|\Delta|\lesssim0.03$;
+Supplement)---the same exception seen in the single-qubit and spin-1 analyses.
+Even the largest code the scar subspace admits is thus a worse monitored memory
+than a generic thermal code of equal size under any generic measurement.
+
+\begin{figure}[t]
+\includegraphics[width=\linewidth]{extensive.png}
+\caption{\textbf{The maximal scar code loses even as an extensive memory.}
+Protected-information density $S_R/k$ for the maximal $k=\lfloor\log_2(L{+}1)
+\rfloor$-qubit scar code (solid) and a same-dimension thermal code (dashed,
+$\pm1\sigma$ band) versus $p$ under local monitoring, for $L=10,14,18$. Scar
+lies below thermal throughout.}
+\label{fig:ext}
+\end{figure}
+
+\paragraph{Mechanism: both channels resolve the scar code.}
+The PXP scar realizes both channels of the criterion while thermal codes realize
+neither. Channel (ii) dominates under the collective staggered operator
+$M=\sum_i(-1)^iZ_i$---the emergent $\mathrm{su}(2)$ spectrum-generating
+generator~\cite{Choi2019}---which carries a large logical leak
+$|\langle0_L|M|1_L\rangle|=1.73$ between the scar rungs (versus $\approx0$ for
+thermal codes) and coherently mixes them. This leak is a one-sided suppressor of
+$\CR$ (Fig.~\ref{fig:mech}, right): every high-leak code is poorly protected,
+whereas low leak permits any value. Channel (i)---eigenvalue distinguishability
+through $O$-variance---is isolated by the Casimir measurement below. Accompanying
+both is a weak monotone trend (Fig.~\ref{fig:mech}, left): protection rises with
+the code's spread in the measurement basis, as ETH predicts, so that unstructured
+thermal codes are close to optimal.
+
+\begin{figure}[t]
+\includegraphics[width=\linewidth]{mechanism.png}
+\caption{\textbf{What controls collective protection.} Collective $\CR$ versus
+$Z$-basis participation (left) and versus logical leak $|\langle0|O|1\rangle|$
+(right) over an eigenstate sweep (blue), product states (orange), and the
+canonical scar (star). Higher participation raises $\CR$; large leak suppresses
+it. The scar is a low-$\CR$ outlier on both axes.}
+\label{fig:mech}
+\end{figure}
+
+The full $(p,\ell)$ dependence, with $\ell$ the measurement support size
+(block-sum of $\ell$ sites; $\ell{=}1$ local, $\ell{=}L$ global), is negative
+throughout: the scar never wins (Supplemental Fig.).
+
+\paragraph{The decoherence-free-subspace rescue fails.}
+A true DFS~\cite{Zanardi1997,Lidar1998} for the scar code would restore an
+advantage. The emergent Casimir
+$J^2=\tfrac12(H^+H^-+H^-H^+)+J_z^2$, built from the exact split
+$H=H^++H^-$~\cite{Choi2019},
+gives the chiral-symmetric scar pair $(\ket{+E},\ket{-E})$ equal expectation and
+vanishing leak ($\Delta\langle J^2\rangle=0.000$, leak $=0.052$)---a nominal DFS.
+Yet under $J^2$ monitoring the scar code still loses, $\Delta\CR=-0.18,-0.13,
+-0.09$ at $p=0.04,0.08,0.12$. The reason is that equal expectation and zero leak
+are necessary but not sufficient: a genuine DFS requires the code states to be
+\emph{eigenstates} of the measured operator. Approximate PXP scars carry
+irreducible Casimir variance ($\mathrm{Var}\,J^2=32.5$ versus $18.1$ for the
+thermal state), so $J^2$ measurement collapses them more strongly than it does
+thermal states. No Casimir measurement can be a true DFS for approximate scars.
+
+\paragraph{A second model isolates the variance as the culprit.}
+To test generality and to isolate this mechanism we repeat the analysis in the
+spin-1 Schecter--Iadecola magnet~\cite{Schecter2019}, whose scar tower
+$\ket{S_n}=(Q^+)^n\ket{\Omega}$, $Q^+=\sum_j(-1)^j(S_j^+)^2$, is an \emph{exact}
+su(2) multiplet. Two facts then hold to machine precision: the scars are exact
+eigenstates, and the Casimir $J^2$ is exactly constant on the tower with
+\emph{zero} variance on every scar---against $\mathrm{Var}\,J^2\simeq32$ for PXP
+(Fig.~\ref{fig:spin1}, right). This flips the Casimir rescue
+(Fig.~\ref{fig:spin1}, left): the exact-su(2) scar code is now a genuine
+decoherence-free subspace---its two logical states are identical $J^2$
+eigenstates---and is \emph{perfectly} protected under $J^2$ monitoring,
+$\CR^{\rm scar}=1$ at every $p$, giving $\Delta\CR=+0.6$ to $+0.8$
+($L=6,8$). The rescue that fails for approximate PXP scars succeeds exactly when
+the Casimir variance vanishes, confirming that this variance---not scarring
+itself---controls it. This is parameter-independent: for $(h,D)=(0.5,0.3)$ and
+$(1.5,0.0)$ the Casimir variance again vanishes identically and $\CR^{\rm
+scar}=1$ under $J^2$. The advantage is, however, confined to this fine-tuned
+Casimir probe: under generic local $S^z$ monitoring the exact-scar and thermal
+codes are statistically comparable ($|\Delta\CR|\lesssim0.1$), so scar structure
+still confers no advantage against a generic local measurement.
+
+\begin{figure}[t]
+\includegraphics[width=\linewidth]{spin1_rescue.png}
+\caption{\textbf{Exact-su(2) scars evade the Casimir-variance obstruction.}
+Second model (spin-1 Schecter--Iadecola, $L=6$, $20$-pair thermal ensemble).
+Left: scar$-$thermal coherent information $\Delta\CR$ versus $p$ (error bars are
+the ensemble SEM). Under $J^2$ monitoring PXP scars lose (blue) while exact
+spin-1 scars win perfectly (red); under generic local $S^z$ the exact-scar and
+thermal codes are comparable ($|\Delta\CR|\lesssim0.1$, grey). Right: scar
+Casimir variance, $\simeq32$ (PXP) versus $\sim10^{-13}$ (exact) on a log
+scale---the control parameter of the rescue.}
+\label{fig:spin1}
+\end{figure}
+
+\paragraph{Calibration to prior monitored-scar work.}
+Reproducing the monitored-N\'eel entanglement transition and mapping our
+per-step rate to continuous time via $\gamma=p/dt$ yields a critical rate
+$\gamma_c\simeq0.083$ ($p_c\simeq0.05$), the same order as the
+$\gamma_c\simeq0.013$ reported for weak continuous monitoring of PXP
+scars~\cite{Paviglianiti2025}; the factor $\sim6$ is consistent with the
+projective-per-step versus continuous-weak protocol difference.
+
+\section{Conclusion}
+
+% (1) what we did — state originality plainly
+We quantified, as a monitored-channel coherent information, how well a logical
+qubit stored in the PXP quantum-many-body-scar subspace is protected against
+random measurement, benchmarked against an ensemble-averaged thermal code at
+matched energy---to our knowledge the first such head-to-head coding comparison
+of scar versus thermal subspaces under monitoring.
+% (2)(3) trend + quantitative contrast with prior work
+Thermal codes protect information better than PXP scar codes at every size and
+under every measurement model, by $\Delta\CR\simeq-0.05$ (local) to $-0.3$
+(collective) at $p=0.10$, up to $L=18$; the scar's emergent-su(2) generator supplies a logical leak
+of $1.73$ that makes it especially fragile, and even a fine-tuned Casimir DFS
+fails because approximate scars retain Casimir variance $\sim\!30$.
+% (4) placement in the broader arc
+This realizes the eigenstate-thermalization-to-approximate-error-correction
+correspondence~\cite{Brandao2019,BaoCheng2019,Qasim2025} as an operational statement about monitored
+circuits: chaos, not athermality, is the coding resource.
+% (5) message / prediction
+Any program that would exploit weak ergodicity breaking for measurement-robust
+quantum memory should expect to lose to a generic chaotic subspace; the relevant
+resource is the code's spread in the measurement basis, and structured
+non-thermal towers whose generators connect the code states are actively
+harmful.
+% (6) future work
+A second, exactly-solvable spin-1 model~\cite{Schecter2019} whose tower closes
+the algebra exactly confirms the obstruction is variance-controlled---there the
+Casimir measurement protects the scar perfectly, while under generic local
+measurement scars retain no advantage. Whether this fragility survives generic non-projective
+noise channels and finite-temperature encodings~\cite{Moudgalya2018,Moudgalya2022}
+is the natural next question.
+
+\begin{acknowledgments}
+\end{acknowledgments}
+
+\section*{Data and code availability}
+The simulation package, drivers, and the data underlying all figures are openly
+available (repository archived at a Zenodo DOI upon publication), enabling
+one-command reproduction of every result reported here.
+
+\bibliography{refs}
+
+\end{document}
