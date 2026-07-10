@@ -66,3 +66,7 @@ include = [
 [tool.pytest.ini_options]
 testpaths = ["tests"]
 addopts = "-q"
+filterwarnings = [
+    # benign FP-exception flags from some BLAS backends (e.g. Apple Accelerate)
+    "ignore:.*encountered in matmul:RuntimeWarning",
+]
