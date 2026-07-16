@@ -1,0 +1,30 @@
+{
+  "title": "scarcode: reproduction package for \"Chaotic states outperform quantum many-body scars as codes under generic measurement\"",
+  "upload_type": "software",
+  "creators": [
+    {
+      "name": "Wakaura, Hikaru",
+      "affiliation": "QIRI (Quantum Integrated Research Institute Inc.), Tokyo, Japan",
+      "orcid": "0000-0001-8381-8323"
+    },
+    {
+      "name": "Tanimae, Taiki",
+      "affiliation": "QIRI (Quantum Integrated Research Institute Inc.), Tokyo, Japan"
+    }
+  ],
+  "description": "<p>Reproduction package for the paper <em>Chaotic states outperform quantum many-body scars as codes under generic measurement: a refutation of scar-enhanced information protection</em> (H. Wakaura and T. Tanimae). Contains the <code>scarcode</code> Python package (PXP and spin-1 Schecter&ndash;Iadecola models, monitored-trajectory reference-qubit coherent information, static Knill&ndash;Laflamme diagnostics, emergent-su(2) Casimir), the paper-reproduction drivers, a pytest benchmark suite, all figure data, and the LaTeX manuscript source. One command regenerates every figure. Main finding: under every generic measurement, chaotic thermal codes protect quantum information better than quantum-many-body-scar codes; an exactly solvable model isolates the Casimir variance as the single control parameter. MIT-licensed. Source repository: https://github.com/hwakaura/scarcode</p>",
+  "keywords": [
+    "quantum information",
+    "measurement-induced phase transition",
+    "quantum many-body scars",
+    "quantum error correction",
+    "PXP model",
+    "coherent information",
+    "reproducibility"
+  ],
+  "license": "mit",
+  "notes": "Software reproduction package archived alongside the article submitted to PRX Quantum. Regenerate results with `pip install -e .` then the drivers in scripts/.",
+  "files": [
+    "/Users/deeptell01/Documents/alterego/personal/chaosec/scarcode-repro-0.1.0.tar.gz"
+  ]
+}

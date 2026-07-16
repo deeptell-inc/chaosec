@@ -130,10 +130,11 @@ variance as the control parameter.
 
 ```bibtex
 @article{WakauraTanimae2026scarcode,
-  title  = {Chaotic states outperform quantum many-body scars as codes under
-            generic measurement: a refutation of scar-enhanced information protection},
+  title  = {Scrambling, not athermality, protects quantum information under
+            generic measurement: chaotic states outperform quantum many-body scar codes},
   author = {Wakaura, Hikaru and Tanimae, Taiki},
-  year   = {2026}
+  year   = {2026},
+  note   = {Code and data: doi:10.5281/zenodo.21336840}
 }
 ```
 

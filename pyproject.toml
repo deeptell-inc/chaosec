@@ -10,8 +10,8 @@ readme = "README.md"
 requires-python = ">=3.9"
 license = { text = "MIT" }
 authors = [
-    { name = "Hikaru Wakaura", email = "h.wakaura@deeptell.jp" },
-    { name = "Taiki Tanimae", email = "t.tanimae@deeptell.jp" },
+    { name = "Hikaru Wakaura", email = "h.wakaura@qiri.co.jp" },
+    { name = "Taiki Tanimae", email = "t.tanimae@qiri.co.jp" },
 ]
 keywords = [
     "quantum-information",
