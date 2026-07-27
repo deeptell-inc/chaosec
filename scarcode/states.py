@@ -112,14 +112,18 @@ def thermal_code(spec: Spectrum, target_energies: tuple[float, float],
 
 def thermal_ensemble(spec: Spectrum, target_energies: tuple[float, float],
                      window: float = 0.4, kmax: int = 30, z2_cut: float = 0.02,
-                     e_floor: float = 0.3, seed: int = 0
-                     ) -> list[tuple[np.ndarray, np.ndarray]]:
+                     e_floor: float = 0.3, seed: int = 0,
+                     return_indices: bool = False):
     """Return up to ``kmax`` thermal code pairs energy-matched to the targets.
 
     For each target energy we collect all generic (non-scar, small ``Z2``
     overlap) eigenstates within ``+/- window``; a code pair draws one state from
     each window. Averaging ``C_R`` over the returned pairs gives a *typical
     thermal* baseline with an error band, replacing the single arbitrary pair.
+
+    With ``return_indices=True`` also returns the eigenstate index pairs, so
+    callers can report the actual energy offsets ``E_k - E_target`` of the
+    selected states (the matching tolerance is ``window``, not zero).
     """
     w = spec.energies
     Ea, Eb = target_energies
@@ -138,8 +142,11 @@ def thermal_ensemble(spec: Spectrum, target_energies: tuple[float, float],
     pairs = [(int(a), int(b)) for a in pa for b in pb if a != b]
     rng.shuffle(pairs)
     pairs = pairs[:kmax]
-    return [(spec.vectors[:, a].copy(), spec.vectors[:, b].copy())
+    vecs = [(spec.vectors[:, a].copy(), spec.vectors[:, b].copy())
             for a, b in pairs]
+    if return_indices:
+        return vecs, pairs
+    return vecs
 
 
 def participation_entropy(state: np.ndarray, base: str = "e") -> float:

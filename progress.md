@@ -60,5 +60,13 @@ version: 1.0.0
   Qian=PRB 112, L180301, 10.1103/b8tq-z48t）。
 - **承認ゲート（未実施）**: arXiv アップロードと Scholastica 投稿はユーザー操作。
 
+## Codex 敵対的レビュー（2026-07-27, /codex:adversarial-review --base HEAD~1）
+検出1件 [high]: 本文「same two energies」に対し実装は `thermal_ensemble(window=0.5)`
+（実オフセット平均0.22・最大0.47, L=14）— エネルギー整合の過大主張＋許容窓の未開示。
+是正: scripts/energy_window_robustness.py 新設（窓±0.5/±0.25/±0.10 の再計算＋オフセット
+分布＋C_R–offset 相関）。結論は窓非依存（ΔC_R local −0.033→−0.031, collective −0.25→−0.21,
+最タイト窓でも z≈2.4/2.8）、C_R と残差オフセットは無相関。本文（quantum版・PRXレガシー版）
+とS3/Appendix C に許容窓の明示開示＋頑健性段落を追加。ledger X1 追記。
+
 ## 敵対的パネル（2026-07-16, /adversarial-panel）
 2名（Sonnet=再現検証・Opus=文献/論理、3ラウンド）。合意: 荷重数値約20項目は4桁一致で再現、文献帰属・数学は健全。検出欠陥5件（18.1孤児、L=12 band文言、spin-1≲0.1、KL比孤児、γ_c循環説明）→ **全件修正済み**（casimir_variance.py・kl_static.py新設、本文/補足/カバレター/criteria修正、全6文書クリーン再コンパイル）。パネル確度: 修正前82/100 → 修正後の想定〜95。

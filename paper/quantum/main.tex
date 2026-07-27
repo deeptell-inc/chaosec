@@ -143,11 +143,16 @@ surviving logical information. Its trajectory average
 \end{equation}
 is the single-qubit coherent information of the monitored channel: $\CR\to1$
 recoverable, $\CR\to0$ lost. We take $dt=0.6$ and measurement probability $p$
-per site (local) or per operator (collective) per step. To remove the
-energy-mismatch confound, scar and thermal codes are built from eigenstates at
-the \emph{same} two energies; \textbf{the thermal baseline is averaged over an
-ensemble of $\sim\!10$--$20$ energy-matched thermal pairs}, without which a single
-atypical pair inverts the conclusion (Sec.~\ref{sec:results}).
+per site (local) or per operator (collective) per step. To control the
+energy-mismatch confound, thermal codes are drawn from generic eigenstates
+energy-matched to the two scar-rung energies within a tolerance $\pm0.5$
+(realized offsets at $L{=}14$: $0.22$ on average, $0.47$ at most);
+\textbf{the thermal baseline is averaged over an ensemble of $\sim\!10$--$20$
+such pairs}, without which a single atypical pair inverts the conclusion
+(Sec.~\ref{sec:results}). The comparison is insensitive to this tolerance:
+tightening the window to $\pm0.1$ leaves the scar deficit unchanged, and
+within the ensemble $\CR$ is uncorrelated with the residual offset
+(Appendix~\ref{app:ensemble}).
 
 We study $L=10$--$18$ (constrained dimension up to $F(20)=6765$) with $40$
 evolution--measurement steps per trajectory and average $\CR$ over $120$--$400$
@@ -455,6 +460,28 @@ pair gives $\CR=0.53$, which sits at the $0$th percentile of a $20$-pair
 ensemble whose mean is $0.87\pm0.03$ (minimum $0.81$). Averaging over the
 ensemble reverses the sign of $\Delta\CR$ and is essential to the conclusion;
 all results in the main text use the ensemble baseline.
+
+\paragraph{Energy-matching tolerance.}
+The ensemble is selected within a finite energy window, not at exactly the
+scar-rung energies: each member is a generic (non-tower,
+$|\langle\Ztwo|E\rangle|^2<0.02$) eigenstate within $\pm0.5$ of one of the two
+targets. At $L=14$ the realized offsets are $0.22$ on average and $0.47$ at
+most, so the matching is approximate. Three checks, all at the headline point
+($L{=}14$, $p{=}0.10$, $12$ pairs, $250$ trajectories, identical seeds), show
+this tolerance does not produce the scar deficit. \emph{(i)}~Tightening the
+window from $\pm0.5$ to $\pm0.25$ and $\pm0.10$ (mean offset
+$0.22\to0.13\to0.06$) leaves the deficit essentially unchanged:
+$\Delta\CR=-0.033,\,-0.034,\,-0.031$ (local) and $-0.25,\,-0.23,\,-0.21$
+(collective); at the tightest matching the gaps remain $\approx2.4$ and
+$\approx2.8$ ensemble standard deviations below zero. \emph{(ii)}~Within the
+ensemble the per-pair $\CR$ is uncorrelated with the pair's mean absolute
+offset [Spearman $\rho=+0.05$ ($p=0.88$, local) and $0.00$ ($p=1.00$,
+collective) at $\pm0.5$], so the thermal band reflects state-to-state
+typicality, not residual energy dependence. \emph{(iii)}~The weak drift with
+the window (collective thermal mean $0.87\to0.83$) slightly \emph{shrinks} the
+gap, the opposite of an energy-mismatch artifact inflating it. The spin-1 and
+extensive-code analyses use analogous windows ($\pm0.8$ and $\pm0.5$). The
+audit is reproduced by \texttt{scripts/energy\_window\_robustness.py}.
 
 \section{Static Knill--Laflamme diagnostics}
 \label{app:kl}
