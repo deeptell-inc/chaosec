@@ -1,0 +1,122 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{parskip}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+\begin{document}
+
+\pagestyle{empty}
+
+\noindent Hikaru Wakaura and Taiki Tanimae\\
+QIRI (Quantum Integrated Research Institute Inc.)\\
+Tokyo 107-0061, Japan\\
+\href{mailto:h.wakaura@qiri.co.jp}{h.wakaura@qiri.co.jp} \quad ORCID: 0000-0001-8381-8323
+
+\vspace{1em}
+\noindent July 27, 2026
+
+\vspace{1em}
+\noindent To the Editors, \emph{Quantum}
+
+\vspace{1em}
+
+\noindent \textbf{Re: Submission of ``Scrambling, not athermality, protects
+quantum information under generic measurement: chaotic states outperform
+quantum many-body scar codes''}
+
+\vspace{0.5em}
+
+We submit for your consideration the manuscript above (research article, two
+authors, eleven pages including nine appendices that replace a separate
+supplement) together with an openly available simulation package reproducing
+every result.
+
+\vspace{0.5em}
+
+% Paragraph 1: the surprise (overturns a common intuition) + what it reveals
+A natural intuition holds that quantum many-body scars---non-thermal,
+weakly entangled, unusually long-lived---should make especially good quantum
+memories. We show that this intuition is wrong, and in doing so identify what
+actually makes a many-body code robust to measurement. Computing the
+reference-qubit coherent information of scar versus thermal codes in a monitored
+circuit, we find that generic chaotic states protect information \emph{better}
+under every realistic measurement and at every accessible size in the
+paradigmatic PXP model---down to the largest code an entire scar subspace can
+hold---while an exactly solvable second model confirms the mechanism and shows
+that scars gain an advantage only under a single fine-tuned probe. The result
+is counterintuitive by construction: the very structure that singles scars out
+is precisely what a measurement exploits to read them out.
+
+% Paragraph 2: broad significance (design principle + methodological lesson) — preempts "confirmatory"
+Two features give the work reach well beyond scars. First, it yields a general
+design principle for measurement-robust quantum memory: protection is set by a
+code's spread in the measurement basis, not by any thermodynamic property, and
+structured subspaces whose symmetry generators couple the encoded states are
+actively harmful. We make this falsifiable---an exactly solvable model isolates a
+single control parameter, a Casimir variance, and predicts correctly the unique
+fine-tuned measurement under which scars can be rescued. Second, of immediate
+practical value to the many groups now benchmarking codes and channels, we
+document a reproducibility trap: comparing against a single natural-looking
+reference eigenstate inverted our own initial conclusion, and only ensemble
+averaging exposed it as an outlier---a cautionary result we consider broadly
+useful in its own right. Together these carry the work past any mere confirmation
+of the thermalization--error-correction correspondence: they turn that
+correspondence into an operational, testable statement about code \emph{design},
+overturn the opposing folklore with a decisive exact-model test, and flag a
+pitfall in how such statements are established.
+
+\noindent In brief, relative to prior work: \emph{(i)} the first head-to-head
+coding comparison of scar versus thermal subspaces under monitoring, at the
+level of channel capacity rather than entanglement or fidelity; \emph{(ii)} a
+two-channel protection criterion with an exact single-shot predictor, validated
+across 65 code--measurement pairs in two models; \emph{(iii)} a documented
+sign-reversing baseline artifact of direct relevance to anyone benchmarking
+codes against individual eigenstates.
+
+\vspace{0.5em}
+
+% Paragraph 3: why this journal
+We believe \emph{Quantum} is the right venue. The result speaks directly to the
+journal's core readership working on monitored dynamics, quantum error
+correction, and quantum memory; it is conceptual and general rather than
+model-specific; and it matches \emph{Quantum}'s standards of openness and
+verifiability---the manuscript is fully self-contained (appendices in place of a
+supplement), an open package regenerates every figure with one command, the
+data are archived with a DOI, and the literature claims have been verified
+against primary sources. We hope the Editors will agree that overturning a
+common intuition, extracting a design principle, and surfacing a shared
+methodological hazard together make a useful and lasting contribution.
+
+\vspace{0.5em}
+
+\noindent We suggest the following referees, all leading experts in
+measurement-induced dynamics, quantum error correction, or quantum many-body
+scars (institutional contact addresses are publicly listed):
+
+\begin{itemize}\itemsep2pt
+  \item Prof.\ Matthew P.~A.\ Fisher, University of California, Santa Barbara ---
+        measurement-induced transitions
+  \item Prof.\ Ehud Altman, University of California, Berkeley ---
+        error correction and monitored circuits
+  \item Dr.\ Michael J.~Gullans, NIST / University of Maryland ---
+        purification transitions
+  \item Prof.\ Vedika Khemani, Stanford University --- random and monitored
+        circuits
+  \item Prof.\ Adam Nahum, \'Ecole Normale Sup\'erieure, Paris --- entanglement
+        dynamics
+  \item Prof.\ Zlatko Papi\'c, University of Leeds --- quantum many-body scars
+  \item Prof.\ Maksym Serbyn, IST Austria --- quantum many-body scars
+  \item Dr.\ Sanjay Moudgalya, Technical University of Munich --- exact scars and
+        spectrum-generating algebras
+\end{itemize}
+
+\noindent We do not request the exclusion of any referee.
+
+\vspace{1em}
+
+\noindent On behalf of both authors,\\
+Hikaru Wakaura\\
+QIRI (Quantum Integrated Research Institute Inc.), Tokyo 107-0061, Japan\\
+\href{mailto:h.wakaura@qiri.co.jp}{h.wakaura@qiri.co.jp}
+
+\end{document}
