@@ -120,6 +120,8 @@ from the menu of candidate measurement-robust quantum memories.
 
 \section{Model and diagnostics}
 
+\subsection{Model, encoding, and monitored dynamics}
+
 We study the PXP chain of $L$ sites in the Rydberg-blockaded (constrained)
 Hilbert space of dimension $F(L{+}2)$ (Fibonacci), with
 \begin{equation}
@@ -159,7 +161,7 @@ Statically we probe the Knill--Laflamme violation of a code under an error set
 $\{E_a\}$ through the logical leak $\langle 0_L|E_a|1_L\rangle$ and the
 distinguishability $\langle0_L|E_a|0_L\rangle-\langle1_L|E_a|1_L\rangle$.
 
-\paragraph{A model-independent criterion.}
+\subsection{A model-independent criterion}
 A projective measurement of a Hermitian operator $O$ leaves the encoded qubit
 literally untouched only if the code is an eigenspace of $O$ with a single
 shared eigenvalue; more generally, the qubit survives a single shot if and only
@@ -186,7 +188,7 @@ predicts the monitored $\CR$ across resolving measurements (Supplement).
 \section{Results}
 \label{sec:results}
 
-\paragraph{Thermal codes win; the apparent scar advantage is a baseline artifact.}
+\subsection{Thermal codes win: the apparent scar advantage is a baseline artifact}
 Figure~\ref{fig:crossover} compares $\CR(p)$ for the scar code against the
 thermal ensemble. For both local-$Z$ and collective (staggered-$Z$) monitoring
 the scar curve lies \emph{below} the thermal-ensemble band at all $p$. A single
@@ -204,7 +206,7 @@ at $L=14$. The scar lies below the thermal band throughout.}
 \label{fig:crossover}
 \end{figure}
 
-\paragraph{The disadvantage persists to the largest accessible size.}
+\subsection{The disadvantage persists to the largest accessible size}
 Figure~\ref{fig:scaling} shows $\Delta\CR\equiv\CR^{\rm scar}-\langle\CR^{\rm
 therm}\rangle$ at $p=0.10$. It is negative for all $L=10$--$18$ and both
 channels: $-0.008$ to $-0.06$ (local) and $-0.25$ to $-0.32$ (collective). The
@@ -216,11 +218,13 @@ essentially size-independent: the refutation is not a finite-size artifact.
 
 \begin{figure}[t]
 \includegraphics[width=\linewidth]{ensemble_scaling.pdf}
-\caption{\textbf{The scar disadvantage $\Delta\CR<0$ at every size.} Scar-minus-
-thermal coherent information at $p=0.10$ versus $L$ for local (grey) and
+\caption{\textbf{The scar disadvantage $\Delta\CR<0$ at every size.} Scar-minus-thermal
+coherent information at $p=0.10$ versus $L$ for local (grey) and
 collective (green) monitoring; shading is the thermal-ensemble spread.}
 \label{fig:scaling}
 \end{figure}
+
+\subsection{Even the maximal scar code loses}
 
 We emphasize that this single-qubit comparison is the most favorable one for the
 scar: the scar tower is only $(L{+}1)$-dimensional, so it can host at most
@@ -231,8 +235,8 @@ here is its best case, and it loses.
 
 To confirm this directly, we encode the \emph{maximal} scar code---all
 $k=\lfloor\log_2(L{+}1)\rfloor$ logical qubits, i.e. $2^k$ tower states
-maximally entangled with a $k$-qubit reference---and compare its protected-
-information density $S_R/k$ against a same-dimension thermal code under local
+maximally entangled with a $k$-qubit reference---and compare its
+protected-information density $S_R/k$ against a same-dimension thermal code under local
 monitoring (Fig.~\ref{fig:ext}). The scar loses at every rate: at $L=14$
 ($k=3$), $\Delta(S_R/k)=-0.17,-0.14,-0.06$ at $p=0.02,0.04,0.08$, with the
 thermal ensemble tightly determined ($\sigma\lesssim0.01$), and the gap persists
@@ -253,7 +257,7 @@ lies below thermal throughout.}
 \label{fig:ext}
 \end{figure}
 
-\paragraph{Mechanism: both channels resolve the scar code.}
+\subsection{Mechanism: both channels resolve the scar code}
 The PXP scar realizes both channels of the criterion while thermal codes realize
 neither. Channel (ii) dominates under the collective staggered operator
 $M=\sum_i(-1)^iZ_i$---the staggered magnetization, order parameter of the
@@ -282,7 +286,7 @@ The full $(p,\ell)$ dependence, with $\ell$ the measurement support size
 (block-sum of $\ell$ sites; $\ell{=}1$ local, $\ell{=}L$ global), is negative
 throughout: the scar never wins (Supplemental Fig.).
 
-\paragraph{The decoherence-free-subspace rescue fails.}
+\subsection{The decoherence-free-subspace rescue fails}
 A true DFS~\cite{Zanardi1997,Lidar1998} for the scar code would restore an
 advantage. The emergent Casimir
 $J^2=\tfrac12(H^+H^-+H^-H^+)+J_z^2$, built from the exact split
@@ -297,7 +301,7 @@ irreducible Casimir variance ($\mathrm{Var}\,J^2=32.5$, against an ensemble
 mean of $6.1$, range $2$--$17$, for the energy-matched thermal states), so
 $J^2$ measurement collapses them more strongly than it does thermal states. No Casimir measurement can be a true DFS for approximate scars.
 
-\paragraph{A second model isolates the variance as the culprit.}
+\subsection{A second model isolates the variance as the culprit}
 To test generality and to isolate this mechanism we repeat the analysis in the
 spin-1 Schecter--Iadecola magnet~\cite{Schecter2019}, whose scar tower
 $\ket{S_n}=(Q^+)^n\ket{\Omega}$, $Q^+=\sum_j(-1)^j(S_j^+)^2$, is an \emph{exact}
@@ -333,7 +337,7 @@ scale---the control parameter of the rescue.}
 \label{fig:spin1}
 \end{figure}
 
-\paragraph{Calibration to prior monitored-scar work.}
+\subsection{Calibration to prior monitored-scar work}
 Reproducing the monitored-N\'eel entanglement transition and mapping our
 per-step rate to continuous time via $\gamma=p/dt$ yields a critical rate
 $\gamma_c\simeq0.083$ ($p_c\simeq0.05$), the same order as the
@@ -344,7 +348,7 @@ quantitatively---stroboscopic evolution interleaved with per-site measurement
 versus continuous-time monitoring, and a finite-size crossing estimate versus a
 full finite-size-scaling analysis.
 
-\paragraph{Experimental accessibility.}
+\subsection{Experimental accessibility}
 The negative result is testable on the platform where PXP scars were first
 observed~\cite{Bernien2017}. Programmable Rydberg-atom arrays natively realize
 the blockaded dynamics, local-$Z$ monitoring is site-resolved projective

@@ -68,6 +68,28 @@ version: 1.0.0
 最タイト窓でも z≈2.4/2.8）、C_R と残差オフセットは無相関。本文（quantum版・PRXレガシー版）
 とS3/Appendix C に許容窓の明示開示＋頑健性段落を追加。ledger X1 追記。
 
+## 章・節見出しの導入（2026-07-28）
+- これまで本文の小見出しは全て `\paragraph{...}` の行内見出しで、番号も目次項目も
+  付かなかった。Quantum は分量制限が無く Appendix を本体に統合した11ページ構成なので、
+  番号付き見出しで navigable にする。
+- `\subsection` へ格上げ（10件）＋新設1件:
+  2.1 Model, encoding, and monitored dynamics（新設。従来この節は無題で始まっていた）
+  2.2 A model-independent criterion
+  3.1 Thermal codes win: the apparent scar advantage is a baseline artifact
+  3.2 The disadvantage persists to the largest accessible size
+  3.3 Even the maximal scar code loses（新設。extensive 符号の議論が見出し無しで
+      3.2 の続きに埋もれていた）
+  3.4 Mechanism / 3.5 DFS rescue fails / 3.6 second model / 3.7 calibration /
+  3.8 experimental accessibility、Appendix C.1 Energy-matching tolerance
+- 見出し文は「主張を述べる文」という従来の方針（one-message-per-figure）を維持し、
+  末尾のピリオドのみ落とした。章立ては 1 Introduction / 2 Model and diagnostics /
+  3 Results / 4 Conclusion、Appendix A–I。
+- 併せて既存の組版バグ2件を修正: ソース行末のハイフン（`protected-`↵`information`、
+  `Scar-minus-`↵`thermal`）が出力で「protected- information」と余分な空白を生んでいた。
+- 再ビルド: quantum 11pp / arxiv バンドル tar.gz・zip ともクリーンルーム 11pp・エラー0 /
+  legacy main 7pp（見出し分で 6→7pp）/ submission-bundle 6pp / supplement 3pp。
+  10pt超の overfull hbox は 0。
+
 ## Zenodo レコード 21336840 メタデータ修正（2026-07-28, 適用済み）
 - 積み残しだった公開レコードの誤メタデータを是正。DOI は不変（10.5281/zenodo.21336840）。
   - title: 旧題「Chaotic states outperform...」→ 現行題「Scrambling, not athermality,...」
