@@ -40,3 +40,6 @@ results/superseded/
 
 # REVTeX auto-generated
 paper/*Notes.bib
+
+# Zenodo build artifact
+scarcode-repro-*.tar.gz

@@ -1,0 +1,231 @@
+\begin{thebibliography}{10}
+
+\bibitem{Li2018MIPT}
+Yaodong Li, Xiao Chen, and Matthew P.~A. Fisher.
+\newblock ``Quantum {Z}eno effect and the many-body entanglement transition''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevB.98.205136}{Phys. Rev. B
+  {\bf 98}, 205136}~(2018).
+
+\bibitem{Li2019}
+Yaodong Li, Xiao Chen, and Matthew P.~A. Fisher.
+\newblock ``Measurement-driven entanglement transition in hybrid quantum
+  circuits''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevB.100.134306}{Phys. Rev. B
+  {\bf 100}, 134306}~(2019).
+
+\bibitem{Skinner2019}
+Brian Skinner, Jonathan Ruhman, and Adam Nahum.
+\newblock ``Measurement-induced phase transitions in the dynamics of
+  entanglement''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevX.9.031009}{Phys. Rev. X {\bf
+  9}, 031009}~(2019).
+
+\bibitem{Chan2019}
+Amos Chan, Rahul~M. Nandkishore, Michael Pretko, and Graeme Smith.
+\newblock ``Unitary-projective entanglement dynamics''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevB.99.224307}{Phys. Rev. B
+  {\bf 99}, 224307}~(2019).
+
+\bibitem{Bao2020}
+Yimu Bao, Soonwon Choi, and Ehud Altman.
+\newblock ``Theory of the phase transition in random unitary circuits with
+  measurements''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevB.101.104301}{Phys. Rev. B
+  {\bf 101}, 104301}~(2020).
+
+\bibitem{Jian2020}
+Chao-Ming Jian, Yi-Zhuang You, Romain Vasseur, and Andreas W.~W. Ludwig.
+\newblock ``Measurement-induced criticality in random quantum circuits''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevB.101.104302}{Phys. Rev. B
+  {\bf 101}, 104302}~(2020).
+
+\bibitem{Fisher2023}
+Matthew P.~A. Fisher, Vedika Khemani, Adam Nahum, and Sagar Vijay.
+\newblock ``Random quantum circuits''.
+\newblock
+  \href{https://dx.doi.org/10.1146/annurev-conmatphys-031720-030658}{Annu. Rev.
+  Condens. Matter Phys. {\bf 14}, 335}~(2023).
+
+\bibitem{Choi2020}
+Soonwon Choi, Yimu Bao, Xiao-Liang Qi, and Ehud Altman.
+\newblock ``Quantum error correction in scrambling dynamics and
+  measurement-induced phase transition''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevLett.125.030505}{Phys. Rev.
+  Lett. {\bf 125}, 030505}~(2020).
+
+\bibitem{Gullans2020}
+Michael~J. Gullans and David~A. Huse.
+\newblock ``Dynamical purification phase transition induced by quantum
+  measurements''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevX.10.041020}{Phys. Rev. X
+  {\bf 10}, 041020}~(2020).
+
+\bibitem{Fan2021}
+Ruihua Fan, Sagar Vijay, Ashvin Vishwanath, and Yi-Zhuang You.
+\newblock ``Self-organized error correction in random unitary circuits with
+  measurement''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevB.103.174309}{Phys. Rev. B
+  {\bf 103}, 174309}~(2021).
+
+\bibitem{Gullans2020b}
+Michael~J. Gullans and David~A. Huse.
+\newblock ``Scalable probes of measurement-induced criticality''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevLett.125.070606}{Phys. Rev.
+  Lett. {\bf 125}, 070606}~(2020).
+
+\bibitem{Qian2024}
+Dongheng Qian and Jing Wang.
+\newblock ``Coherent information phase transition in a noisy quantum circuit''.
+\newblock \href{https://dx.doi.org/10.1103/b8tq-z48t}{Phys. Rev. B {\bf 112},
+  L180301}~(2025).
+
+\bibitem{Deutsch1991}
+J.~M. Deutsch.
+\newblock ``Quantum statistical mechanics in a closed system''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevA.43.2046}{Phys. Rev. A {\bf
+  43}, 2046}~(1991).
+
+\bibitem{Srednicki1994}
+Mark Srednicki.
+\newblock ``Chaos and quantum thermalization''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevE.50.888}{Phys. Rev. E {\bf
+  50}, 888}~(1994).
+
+\bibitem{Rigol2008}
+Marcos Rigol, Vanja Dunjko, and Maxim Olshanii.
+\newblock ``Thermalization and its mechanism for generic isolated quantum
+  systems''.
+\newblock \href{https://dx.doi.org/10.1038/nature06838}{Nature {\bf 452},
+  854}~(2008).
+
+\bibitem{DAlessio2016}
+Luca D'Alessio, Yariv Kafri, Anatoli Polkovnikov, and Marcos Rigol.
+\newblock ``From quantum chaos and eigenstate thermalization to statistical
+  mechanics and thermodynamics''.
+\newblock \href{https://dx.doi.org/10.1080/00018732.2016.1198134}{Adv. Phys.
+  {\bf 65}, 239}~(2016).
+
+\bibitem{KnillLaflamme1997}
+Emanuel Knill and Raymond Laflamme.
+\newblock ``Theory of quantum error-correcting codes''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevA.55.900}{Phys. Rev. A {\bf
+  55}, 900}~(1997).
+
+\bibitem{Brandao2019}
+Fernando G. S.~L. Brand\~ao, Elizabeth Crosson, M.~Burak \c{S}ahino\u{g}lu, and
+  John Bowen.
+\newblock ``Quantum error correcting codes in eigenstates of
+  translation-invariant spin chains''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevLett.123.110502}{Phys. Rev.
+  Lett. {\bf 123}, 110502}~(2019).
+
+\bibitem{BaoCheng2019}
+Ning Bao and Newton Cheng.
+\newblock ``Eigenstate thermalization hypothesis and approximate quantum error
+  correction''.
+\newblock \href{https://dx.doi.org/10.1007/JHEP08(2019)152}{J. High Energy
+  Phys. {\bf 2019}, 152}~(2019).
+
+\bibitem{Qasim2025}
+Shozab Qasim and Jason Pollack.
+\newblock ``Approximate quantum error correction, eigenstate thermalization and
+  the chaos bound''~(2025).
+\newblock  \href{http://arxiv.org/abs/2510.26758}{arXiv:2510.26758}.
+
+\bibitem{Bernien2017}
+Hannes Bernien, Sylvain Schwartz, Alexander Keesling, Harry Levine, Ahmed
+  Omran, Hannes Pichler, Soonwon Choi, Alexander~S. Zibrov, Manuel Endres,
+  Markus Greiner, Vladan Vuleti\'c, and Mikhail~D. Lukin.
+\newblock ``Probing many-body dynamics on a 51-atom quantum simulator''.
+\newblock \href{https://dx.doi.org/10.1038/nature24622}{Nature {\bf 551},
+  579}~(2017).
+
+\bibitem{Turner2018}
+C.~J. Turner, A.~A. Michailidis, D.~A. Abanin, M.~Serbyn, and Z.~Papi\'c.
+\newblock ``Weak ergodicity breaking from quantum many-body scars''.
+\newblock \href{https://dx.doi.org/10.1038/s41567-018-0137-5}{Nat. Phys. {\bf
+  14}, 745}~(2018).
+
+\bibitem{Turner2018b}
+C.~J. Turner, A.~A. Michailidis, D.~A. Abanin, M.~Serbyn, and Z.~Papi\'c.
+\newblock ``Quantum scarred eigenstates in a {R}ydberg atom chain:
+  Entanglement, breakdown of thermalization, and stability to perturbations''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevB.98.155134}{Phys. Rev. B
+  {\bf 98}, 155134}~(2018).
+
+\bibitem{Serbyn2021}
+Maksym Serbyn, Dmitry~A. Abanin, and Zlatko Papi\'c.
+\newblock ``Quantum many-body scars and weak breaking of ergodicity''.
+\newblock \href{https://dx.doi.org/10.1038/s41567-021-01230-2}{Nat. Phys. {\bf
+  17}, 675}~(2021).
+
+\bibitem{Moudgalya2022}
+Sanjay Moudgalya, B.~Andrei Bernevig, and Nicolas Regnault.
+\newblock ``Quantum many-body scars and {H}ilbert space fragmentation: a review
+  of exact results''.
+\newblock \href{https://dx.doi.org/10.1088/1361-6633/ac73a0}{Rep. Prog. Phys.
+  {\bf 85}, 086501}~(2022).
+
+\bibitem{Zanardi1997}
+Paolo Zanardi and Mario Rasetti.
+\newblock ``Noiseless quantum codes''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevLett.79.3306}{Phys. Rev.
+  Lett. {\bf 79}, 3306}~(1997).
+
+\bibitem{Lidar1998}
+D.~A. Lidar, I.~L. Chuang, and K.~B. Whaley.
+\newblock ``Decoherence-free subspaces for quantum computation''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevLett.81.2594}{Phys. Rev.
+  Lett. {\bf 81}, 2594}~(1998).
+
+\bibitem{WangDFS2024}
+He-Ran Wang, Dong Yuan, Shun-Yao Zhang, Zhong Wang, Dong-Ling Deng, and L.-M.
+  Duan.
+\newblock ``Embedding quantum many-body scars into decoherence-free
+  subspaces''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevLett.132.150401}{Phys. Rev.
+  Lett. {\bf 132}, 150401}~(2024).
+
+\bibitem{Paviglianiti2025}
+Alessio Paviglianiti and Alessandro Silva.
+\newblock ``Enhancing revivals via projective measurements in a quantum scarred
+  system''.
+\newblock \href{https://dx.doi.org/10.1103/jf2f-wqkx}{Phys. Rev. Lett. {\bf
+  135}, 090402}~(2025).
+
+\bibitem{Lin2019}
+Cheng-Ju Lin and Olexei~I. Motrunich.
+\newblock ``Exact quantum many-body scar states in the {R}ydberg-blockaded atom
+  chain''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevLett.122.173401}{Phys. Rev.
+  Lett. {\bf 122}, 173401}~(2019).
+
+\bibitem{Ho2019}
+Wen~Wei Ho, Soonwon Choi, Hannes Pichler, and Mikhail~D. Lukin.
+\newblock ``Periodic orbits, entanglement, and quantum many-body scars in
+  constrained models: Matrix product state approach''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevLett.122.040603}{Phys. Rev.
+  Lett. {\bf 122}, 040603}~(2019).
+
+\bibitem{Choi2019}
+Soonwon Choi, Christopher~J. Turner, Hannes Pichler, Wen~Wei Ho, Alexios~A.
+  Michailidis, Zlatko Papi\'c, Maksym Serbyn, Mikhail~D. Lukin, and Dmitry~A.
+  Abanin.
+\newblock ``Emergent {SU}(2) dynamics and perfect quantum many-body scars''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevLett.122.220603}{Phys. Rev.
+  Lett. {\bf 122}, 220603}~(2019).
+
+\bibitem{Schecter2019}
+Michael Schecter and Thomas Iadecola.
+\newblock ``Weak ergodicity breaking and quantum many-body scars in spin-1 {XY}
+  magnets''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevLett.123.147201}{Phys. Rev.
+  Lett. {\bf 123}, 147201}~(2019).
+
+\bibitem{Moudgalya2018}
+Sanjay Moudgalya, Stephan Rachel, B.~Andrei Bernevig, and Nicolas Regnault.
+\newblock ``Exact excited states of nonintegrable models''.
+\newblock \href{https://dx.doi.org/10.1103/PhysRevB.98.235155}{Phys. Rev. B
+  {\bf 98}, 235155}~(2018).
+
+\end{thebibliography}

@@ -44,9 +44,9 @@ plot = ["matplotlib>=3.4"]
 dev = ["pytest>=7.0", "matplotlib>=3.4", "build>=1.0"]
 
 [project.urls]
-Homepage = "https://github.com/hwakaura/scarcode"
-Repository = "https://github.com/hwakaura/scarcode"
-Issues = "https://github.com/hwakaura/scarcode/issues"
+Homepage = "https://github.com/deeptell-inc/chaosec"
+Repository = "https://github.com/deeptell-inc/chaosec"
+Issues = "https://github.com/deeptell-inc/chaosec/issues"
 
 [project.scripts]
 scarcode-demo = "scarcode.cli:main"

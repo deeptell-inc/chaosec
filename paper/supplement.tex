@@ -74,6 +74,28 @@ ensemble whose mean is $0.87\pm0.03$ (minimum $0.81$). Averaging over the
 ensemble reverses the sign of $\Delta\CR$ and is essential to the conclusion;
 all results in the main text use the ensemble baseline.
 
+\paragraph{Energy-matching tolerance.}
+The ensemble is selected within a finite energy window, not at exactly the
+scar-rung energies: each member is a generic (non-tower,
+$|\langle\Ztwo|E\rangle|^2<0.02$) eigenstate within $\pm0.5$ of one of the two
+targets. At $L=14$ the realized offsets are $0.22$ on average and $0.47$ at
+most, so the matching is approximate. Three checks, all at the headline point
+($L{=}14$, $p{=}0.10$, $12$ pairs, $250$ trajectories, identical seeds), show
+this tolerance does not produce the scar deficit. \emph{(i)}~Tightening the
+window from $\pm0.5$ to $\pm0.25$ and $\pm0.10$ (mean offset
+$0.22\to0.13\to0.06$) leaves the deficit essentially unchanged:
+$\Delta\CR=-0.033,\,-0.034,\,-0.031$ (local) and $-0.25,\,-0.23,\,-0.21$
+(collective); at the tightest matching the gaps remain $\approx2.4$ and
+$\approx2.8$ ensemble standard deviations below zero. \emph{(ii)}~Within the
+ensemble the per-pair $\CR$ is uncorrelated with the pair's mean absolute
+offset [Spearman $\rho=+0.05$ ($p=0.88$, local) and $0.00$ ($p=1.00$,
+collective) at $\pm0.5$], so the thermal band reflects state-to-state
+typicality, not residual energy dependence. \emph{(iii)}~The weak drift with
+the window (collective thermal mean $0.87\to0.83$) slightly \emph{shrinks} the
+gap, the opposite of an energy-mismatch artifact inflating it. The spin-1 and
+extensive-code analyses use analogous windows ($\pm0.8$ and $\pm0.5$). The
+audit is reproduced by \texttt{scripts/energy\_window\_robustness.py}.
+
 \section{Static Knill--Laflamme diagnostics}
 
 For a code $\{\ket{0_L},\ket{1_L}\}$ and error set $\{E_a\}$ we quantify
@@ -129,8 +151,9 @@ Ref.~[Paviglianiti \& Silva], we reproduce the monitored-N\'eel entanglement
 transition (Fig.~\ref{fig:supp_gamma}) and identify the volume-to-area crossing
 $p_c\simeq0.05$. With $\gamma=p/dt$ and $dt=0.6$ this gives $\gamma_c\simeq0.083$,
 the same order as the reported $\gamma_c\simeq0.013\pm0.002$; the factor
-$\sim6$ is consistent with the difference between per-step and continuous-time
-projective measurement.
+$\sim6$ reflects protocol and estimator differences (stroboscopic per-step
+versus continuous-time monitoring; a crossing estimate versus finite-size
+scaling) that we have not converted quantitatively.
 
 \begin{figure}[t]
 \includegraphics[width=\linewidth]{gamma_mapping.png}
@@ -162,12 +185,12 @@ is constant on the tower with variance $\sim10^{-13}$ on every scar---versus
 $\mathrm{Var}\,J^2\simeq32$ for PXP scars. Consequently a two-rung scar code has
 identical $J^2$ outcome distributions and is an exact decoherence-free subspace
 of a $J^2$ measurement, which is why the rescue succeeds here and fails for PXP
-($\CR^{\rm scar}=1$, $\Delta\CR=+0.6$ to $+0.8$ at $L=6,8$). Under generic local
-$S^z$ monitoring, by contrast, the exact-scar and thermal codes are
-statistically comparable ($\Delta\CR=+0.10,+0.06,-0.02$ at $p=0.04,0.08,0.12$
-with ensemble SEM $\sim0.04$; $20$-pair ensemble, $L=6$): scar structure confers
-an advantage only under the fine-tuned Casimir probe, not against a generic
-local measurement.
+($\CR^{\rm scar}=1$, $\Delta\CR=+0.6$ to $+0.9$ at $L=6,8$). Under generic local
+$S^z$ monitoring, by contrast, neither code is systematically protected:
+$\Delta\CR=+0.10,+0.06,-0.02$ at $p=0.04,0.08,0.12$ (ensemble SEM $\sim0.04$;
+$20$-pair ensemble, $L=6$) is scar-favorable at the lowest rate (about
+$2\sigma$; up to $+0.17$ at $L=8$) but decays and reverses sign with increasing
+$p$, so the scar advantage remains confined to the fine-tuned Casimir probe.
 
 \section{A single-shot resolvability predictor}
 

@@ -25,9 +25,9 @@ measurement: chaotic states outperform quantum many-body scar codes}
 \email{t.tanimae@qiri.co.jp}
 \affiliation{QIRI (Quantum Integrated Research Institute Inc.), Tokyo 107-0061, Japan}
 
-\date{\today} 
+\date{\today}   
 
-\begin{abstract} 
+\begin{abstract}   
 % (1) introduction — all-fields scientist
 Monitored quantum many-body systems protect quantum information from
 projective measurements exactly when their unitary dynamics scramble it,
@@ -59,7 +59,7 @@ hypothesis that scarring aids information protection against generic
 measurement. A second, exactly-solvable spin-1 model isolates the Casimir
 variance as the control parameter: only zero-variance \emph{exact} scars are
 protected by their Casimir, and even then a generic local measurement grants
-them no advantage.
+them no systematic advantage.
 % (7) broad outlook
 These results establish scrambling as the design resource for
 measurement-robust encoding and caution that weak-ergodicity-breaking
@@ -207,10 +207,12 @@ at $L=14$. The scar lies below the thermal band throughout.}
 \paragraph{The disadvantage persists to the largest accessible size.}
 Figure~\ref{fig:scaling} shows $\Delta\CR\equiv\CR^{\rm scar}-\langle\CR^{\rm
 therm}\rangle$ at $p=0.10$. It is negative for all $L=10$--$18$ and both
-channels: $-0.03$ to $-0.06$ (local) and $-0.25$ to $-0.32$ (collective), the
-band excluding zero. At the largest size $L=18$ (constrained dimension $6765$)
-it is $-0.05$ (local) and $-0.30$ (collective), essentially size-independent:
-the refutation is not a finite-size artifact.
+channels: $-0.008$ to $-0.06$ (local) and $-0.25$ to $-0.32$ (collective). The
+thermal-ensemble band excludes zero at every size for the collective channel,
+and at every size except $L=12$ for the local one (there $-0.008\pm0.009$,
+consistent with zero). At the largest size $L=18$ (constrained dimension
+$6765$) the gap is $-0.05$ (local) and $-0.30$ (collective), the collective gap
+essentially size-independent: the refutation is not a finite-size artifact.
 
 \begin{figure}[t]
 \includegraphics[width=\linewidth]{ensemble_scaling.pdf}
@@ -291,9 +293,9 @@ Yet under $J^2$ monitoring the scar code still loses, $\Delta\CR=-0.18,-0.13,
 -0.09$ at $p=0.04,0.08,0.12$. The reason is that equal expectation and zero leak
 are necessary but not sufficient: a genuine DFS requires the code states to be
 \emph{eigenstates} of the measured operator. Approximate PXP scars carry
-irreducible Casimir variance ($\mathrm{Var}\,J^2=32.5$ versus $18.1$ for the
-thermal state), so $J^2$ measurement collapses them more strongly than it does
-thermal states. No Casimir measurement can be a true DFS for approximate scars.
+irreducible Casimir variance ($\mathrm{Var}\,J^2=32.5$, against an ensemble
+mean of $6.1$, range $2$--$17$, for the energy-matched thermal states), so
+$J^2$ measurement collapses them more strongly than it does thermal states. No Casimir measurement can be a true DFS for approximate scars.
 
 \paragraph{A second model isolates the variance as the culprit.}
 To test generality and to isolate this mechanism we repeat the analysis in the
@@ -306,15 +308,17 @@ eigenstates, and the Casimir $J^2$ is exactly constant on the tower with
 [Fig.~\ref{fig:spin1}(a)]: the exact-su(2) scar code is now a genuine
 decoherence-free subspace---its two logical states are identical $J^2$
 eigenstates---and is \emph{perfectly} protected under $J^2$ monitoring,
-$\CR^{\rm scar}=1$ at every $p$, giving $\Delta\CR=+0.6$ to $+0.8$
+$\CR^{\rm scar}=1$ at every $p$, giving $\Delta\CR=+0.6$ to $+0.9$
 ($L=6,8$). The rescue that fails for approximate PXP scars succeeds exactly when
 the Casimir variance vanishes, confirming that this variance---not scarring
 itself---controls it. This is parameter-independent: for $(h,D)=(0.5,0.3)$ and
 $(1.5,0.0)$ the Casimir variance again vanishes identically and $\CR^{\rm
 scar}=1$ under $J^2$. The advantage is, however, confined to this fine-tuned
-Casimir probe: under generic local $S^z$ monitoring the exact-scar and thermal
-codes are statistically comparable ($|\Delta\CR|\lesssim0.1$), so scar structure
-still confers no advantage against a generic local measurement.
+Casimir probe: under generic local $S^z$ monitoring the exact-scar code shows
+no \emph{systematic} advantage---a small scar-favorable difference at the
+lowest rate ($\Delta\CR\simeq+0.10$ to $+0.17$ at $p=0.04$, $L=6,8$) decays and
+changes sign as $p$ grows---so scar structure again fails to protect against
+generic local measurement.
 
 \begin{figure}[t]
 \includegraphics[width=\linewidth]{spin1_rescue.pdf}
@@ -335,7 +339,10 @@ per-step rate to continuous time via $\gamma=p/dt$ yields a critical rate
 $\gamma_c\simeq0.083$ ($p_c\simeq0.05$), the same order as the
 $\gamma_c\simeq0.013\pm0.002$ reported for continuous-time projective
 $\sigma^z$ monitoring of PXP scars~\cite{Paviglianiti2025}; the factor $\sim6$
-is consistent with the per-step versus continuous-time rate convention.
+reflects protocol and estimator differences we have not converted
+quantitatively---stroboscopic evolution interleaved with per-site measurement
+versus continuous-time monitoring, and a finite-size crossing estimate versus a
+full finite-size-scaling analysis.
 
 \paragraph{Experimental accessibility.}
 The negative result is testable on the platform where PXP scars were first
@@ -395,9 +402,9 @@ and wrote the manuscript.
 \section*{Data and code availability}
 The simulation package, drivers, and the data underlying all figures are openly
 available at \href{https://doi.org/10.5281/zenodo.21336840}{doi:10.5281/zenodo.21336840}
-(source: \url{https://github.com/hwakaura/scarcode}), enabling one-command
+(source: \url{https://github.com/deeptell-inc/chaosec}), enabling one-command
 reproduction of every result reported here.
 
-\bibliography{refs}
+\bibliography{refs} 
 
-\end{document}
+\end{document} 

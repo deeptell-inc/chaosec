@@ -49,3 +49,24 @@ version: 1.0.0
 
 ## 保留中の承認
 - S12 投稿直前（PRX Quantum）— S16/S17 通過済。**実投稿前に要ユーザー承認**（本スキルはここで停止）。
+
+## S14/S10 再訪: PRX Quantum デスクリジェクト → Quantum へ（2026-07-27）
+- PRX Quantum は編集段階リジェクト（選択性基準。技術的批判なし。APS Open Science 移管オファーは辞退）。
+- ユーザー決定: **Quantum (quantum-journal.org)** へ再投稿、arXiv 先行（S11 が必須化）。
+- 成果物: `paper/quantum/` — quantumarticle 版 main.tex（11pp、Supplement を Appendix A–I に統合、
+  エラー0）、cover_letter（Quantum宛）、`arxiv-v1.tar.gz`（自己完結・単体コンパイル検証済）、
+  SUBMISSION.md（手順書）。refs.bib は全34件に DOI 付与
+  （非APS 8件+新形式APS 2件は Crossref で一次検証; Paviglianiti=10.1103/jf2f-wqkx,
+  Qian=PRB 112, L180301, 10.1103/b8tq-z48t）。
+- **承認ゲート（未実施）**: arXiv アップロードと Scholastica 投稿はユーザー操作。
+
+## Codex 敵対的レビュー（2026-07-27, /codex:adversarial-review --base HEAD~1）
+検出1件 [high]: 本文「same two energies」に対し実装は `thermal_ensemble(window=0.5)`
+（実オフセット平均0.22・最大0.47, L=14）— エネルギー整合の過大主張＋許容窓の未開示。
+是正: scripts/energy_window_robustness.py 新設（窓±0.5/±0.25/±0.10 の再計算＋オフセット
+分布＋C_R–offset 相関）。結論は窓非依存（ΔC_R local −0.033→−0.031, collective −0.25→−0.21,
+最タイト窓でも z≈2.4/2.8）、C_R と残差オフセットは無相関。本文（quantum版・PRXレガシー版）
+とS3/Appendix C に許容窓の明示開示＋頑健性段落を追加。ledger X1 追記。
+
+## 敵対的パネル（2026-07-16, /adversarial-panel）
+2名（Sonnet=再現検証・Opus=文献/論理、3ラウンド）。合意: 荷重数値約20項目は4桁一致で再現、文献帰属・数学は健全。検出欠陥5件（18.1孤児、L=12 band文言、spin-1≲0.1、KL比孤児、γ_c循環説明）→ **全件修正済み**（casimir_variance.py・kl_static.py新設、本文/補足/カバレター/criteria修正、全6文書クリーン再コンパイル）。パネル確度: 修正前82/100 → 修正後の想定〜95。
