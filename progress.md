@@ -68,6 +68,27 @@ version: 1.0.0
 最タイト窓でも z≈2.4/2.8）、C_R と残差オフセットは無相関。本文（quantum版・PRXレガシー版）
 とS3/Appendix C に許容窓の明示開示＋頑健性段落を追加。ledger X1 追記。
 
+## 敵対的パネル第2回・Round 2（2026-07-28, 最も否定的な査読者→修正）
+- A=Codex・B=Opus が改訂稿を再攻撃（Round 1 の蒸し返しは禁止と指示）。主要検出:
+  (1) fine-J² は実質非縮退スペクトルで任意の2次元符号を1発破壊 — スカー C_R が全段
+  13桁一致（未測定確率）で、R1 の「欠損は分散に追随」は熱的側ノイズの読み違え。
+  (2) 純度を上げると localZ の符号が反転（E=6.6 で z=+7.2）。
+  (3) 結論に旧文残存（自己矛盾）。(4) ±1σ バンドは検定でない。(5) 「different seeds」
+  は誤記述（実際は窓±0.3→±0.5＋ペア規則も変更）。(6) R1 熱的プールにスカー混入・
+  孤児 JSON 再発。(7) Fig2 の L=16 は別二重項パートナー。
+- 対応計算: pure_rung_dfs2.py（FSA除外クリーンプール＋**多重項ビン化 Casimir**＋
+  窓感度）→ binned J² で canonical 負け/E=5.3 は +0.25 で**救済成立**（非単調、
+  ビン幾何が交絡）。uncertainty_audit.py（階層ブートストラップ CI 3点全てゼロ排除、
+  p=0.02 深さスキャンで local も深さ安定）。l16_partner_check.py（両パートナーで
+  符号頑健）。
+- 本文: 3.5 を2層構造に全面改稿（構造的不可能性＋多重項分解能での純度依存救済）、
+  「No Casimir measurement can be a DFS」撤回、abstract/序論/結論を canonical/
+  physically-realized スコープに統一、App C に J² 窓感度＋プール衛生の小節新設。
+  ledger R11–R19。abstract 1918/1920。最終 14pp・クリーンルーム両バンドとも
+  エラー0・pytest 11/11。
+- 注: レガシー PRX 版 (paper/main.tex, supplement.tex) はパネル改稿を反映していない
+  （投稿先は Quantum 版のみが正本。レガシー版は記録として凍結）。
+
 ## 敵対的パネル第2回・Round 1（2026-07-28, /adversarial-panel: 批判的査読者→修正）
 - 構成: A=Codex CLI（再現実行つき）, B=Claude Opus（独立）。各自「PRX の最も批判的な査読者」
   として Top-5 を独立生成 → ファシリテーターが全指摘を JSON/再実行で裏取り → 統合して修正。
