@@ -21,7 +21,7 @@ approved the final version.
 
 ## Data and code availability
 All simulation code (`scarcode`), reproduction drivers, and the data underlying
-every figure are openly available; archived at doi:10.5281/zenodo.21336840. A statement to this effect appears in the manuscript.
+every figure are openly available; archived at doi:10.5281/zenodo.21642056. A statement to this effect appears in the manuscript.
 
 ## Ethics
 Not applicable (theoretical/computational study; no human or animal subjects).

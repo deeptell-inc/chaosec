@@ -134,7 +134,7 @@ variance as the control parameter.
             generic measurement: chaotic states outperform quantum many-body scar codes},
   author = {Wakaura, Hikaru and Tanimae, Taiki},
   year   = {2026},
-  note   = {Code and data: doi:10.5281/zenodo.21336840}
+  note   = {Code and data: doi:10.5281/zenodo.21642056}
 }
 ```
 

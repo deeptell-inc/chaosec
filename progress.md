@@ -80,16 +80,24 @@ version: 1.0.0
   actions/edit → PUT metadata → actions/publish。ライブのメタデータを取得して
   差分キーだけをパッチする方式（doi/publication_date/access_right は触らない）、
   PUT 失敗時は actions/discard で自動ロールバック。`--dry-run` は読み取りのみで差分表示。
-- **未解決の別問題を検出**: 公開レコードに載っているファイル
+- **検出した別問題 → 新バージョン発行で解決（ユーザー承認済）**: 公開レコードに載っているファイル
   `scarcode-repro-0.1.0.tar.gz`（7/13付）は**現行原稿を再現できない**。
   本文が参照する 5 スクリプト（energy_window_robustness / casimir_variance /
   kl_static / predictor / restyle_figures）が欠落し、Codex 修正も未反映。
   公開済みレコードのファイルは凍結されているため、差し替えには**新バージョン発行**
   （新しい version DOI が発行される）が必要。候補 `scarcode-repro-0.1.1.tar.gz` を
   `git archive HEAD` で作成し、クリーン venv で `pip install -e .` + pytest 11/11、
-  5 スクリプト全存在を検証済み。**発行はユーザー判断待ち**。
-  なお concept DOI は 10.5281/zenodo.21336839（常に最新版を指す）。本文と README は
-  version DOI 21336840 を引用している。
+  5 スクリプト全存在を検証済み。
+- **v0.1.1 発行済（2026-07-28）**: 新 version DOI = **10.5281/zenodo.21642056**
+  （record 21642056、旧版から継承したファイルを削除して 0.1.1 を差し替え、metadata に
+  version="0.1.1"）。concept DOI 10.5281/zenodo.21336839 は 21642056 へ解決することを確認。
+  本文・README・DECLARATIONS・SUBMISSION.md の引用を全て新 DOI に差し替え、
+  quantum 11pp / arxiv 両バンドル（tar.gz・zip ともクリーンルーム 11pp・エラー0・
+  新DOI反映確認）/ legacy 6pp / submission-bundle 6pp を再ビルド。
+  初版 21336840 は「スクリプト5件欠落」の欠陥版なので今後引用しない。
+- ツール追加機能: `--new-version ID`（actions/newversion → 継承ファイル削除 →
+  アップロード → metadata PUT（doi は落とす）→ publish）。`--dry-run` で
+  ファイル置換とメタデータ差分を事前表示。オフラインテスト 19 件 pass。
 
 ## 投稿バンドル整備 zip版 + PyPI 配布物再ビルド（2026-07-28）
 - Finder で作られた `paper/quantum/arxiv.zip` は arXiv に出せない構成だった:

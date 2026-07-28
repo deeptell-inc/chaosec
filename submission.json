@@ -31,7 +31,8 @@
     }
   ],
   "notes": "Software reproduction package for the article of the same name, submitted to Quantum (quantum-journal.org). Regenerate results with `pip install -e .` then the drivers in scripts/.",
+  "version": "0.1.1",
   "files": [
-    "/Users/deeptell01/Documents/alterego/personal/chaosec/scarcode-repro-0.1.0.tar.gz"
+    "/Users/deeptell01/Documents/alterego/personal/chaosec/scarcode-repro-0.1.1.tar.gz"
   ]
 }

@@ -28,9 +28,11 @@ information + PRX-family common rules (Popular Summary, REVTeX, declarations).
 ## 投稿前に著者が埋める項目（未確定）
 - [ ] Funding / acknowledgments（`main.tex` の該当コメント、`DECLARATIONS.md`）
 - [ ] Author contributions の最終文言（`DECLARATIONS.md`）
-- [x] Zenodo DOI 予約済 **10.5281/zenodo.21336840**（production draft id 21336840、
-      `main.tex` data availability・`DECLARATIONS.md` に記載済）。※レコードは未公開（draft）。
-      公開時: `zenodo-deposit --config submission.json --production --publish`（不可逆）
+- [x] Zenodo **公開済**。引用する version DOI = **10.5281/zenodo.21642056**（v0.1.1、
+      2026-07-28 発行。現行原稿を再現できる唯一のバージョン）。初版 21336840 は
+      スクリプト5件が欠落しているため引用しない。concept DOI 10.5281/zenodo.21336839 は
+      常に最新版へ解決。`main.tex` data availability・`DECLARATIONS.md` は新 DOI に更新済。
+      次版を出す時: `zenodo-deposit --config submission.json --production --new-version <前版id> --publish`
 - [ ] 推奨査読者の所属メールアドレス（`cover_letter.tex`）
 - [ ] 長さガイド（初回投稿は任意形式可。プロダクション時に図を個別ファイル提出）
 

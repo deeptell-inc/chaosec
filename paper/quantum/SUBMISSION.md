@@ -40,7 +40,7 @@ criticism); transferred content unchanged, reformatted to `quantumarticle`.
    the suggested referees from the cover letter.
 3. Declarations to reuse: no funding; both authors conceived the study, H.W.
    did everything else (already stated in the manuscript back matter);
-   data/code at doi:10.5281/zenodo.21336840 + github.com/deeptell-inc/chaosec.
+   data/code at doi:10.5281/zenodo.21642056 + github.com/deeptell-inc/chaosec.
 4. Note: Quantum charges a publication fee only on acceptance; fee waivers can
    be requested during submission, no justification required.
 
