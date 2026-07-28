@@ -33,6 +33,9 @@ def main():
     ap.add_argument("--L", type=int, default=14)
     ap.add_argument("--ntraj", type=int, default=200)
     ap.add_argument("--kthermal", type=int, default=8)
+    ap.add_argument("--ps", default=None,
+                    help="comma-separated measurement rates "
+                         "(default: the grid of the shipped results)")
     ap.add_argument("--measure", choices=["localZ", "collective", "operator"],
                     default="localZ")
     args = ap.parse_args()
@@ -67,7 +70,15 @@ def main():
     mon = MonitoredPXP(m, dt=dt, U=U, collective_op=coll, operator=op)
     print(f"L={L}: tower dim={len(tower)}, k={k} logical qubits (code dim {mcode}); "
           f"{len(pool)} thermal states in window; measure={args.measure}")
-    ps = [0.0, 0.04, 0.08, 0.12]
+    # Default grids match the shipped results/ JSONs: the local runs behind
+    # Fig. 4 used p = 0, 0.02, 0.04, 0.08; the collective/operator runs behind
+    # Table S8 used p = 0, 0.04, 0.08, 0.12.  Override with --ps.
+    if args.ps:
+        ps = [float(x) for x in args.ps.split(",")]
+    elif args.measure == "localZ":
+        ps = [0.0, 0.02, 0.04, 0.08]
+    else:
+        ps = [0.0, 0.04, 0.08, 0.12]
     rows = []
     for p in ps:
         cfg = TrajectoryConfig(p=p, n_steps=40, dt=dt, measure=args.measure,

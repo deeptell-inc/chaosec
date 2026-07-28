@@ -8,8 +8,11 @@ import numpy as np
 
 
 def main():
-    files = sorted(glob.glob("results/extensive_L*.json"),
-                   key=lambda f: int(f.split("_L")[1].split(".")[0]))
+    # only the plain local-monitoring files: extensive_L<size>.json
+    # (skip the _collective/_operator variants, which belong to Table S8)
+    files = [f for f in glob.glob("results/extensive_L*.json")
+             if f.split("_L")[1].split(".")[0].isdigit()]
+    files = sorted(files, key=lambda f: int(f.split("_L")[1].split(".")[0]))
     fig, ax = plt.subplots(figsize=(6.4, 4.6))
     colors = ["C0", "C2", "C3", "C4"]
     for f, c in zip(files, colors):
