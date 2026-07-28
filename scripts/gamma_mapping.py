@@ -95,9 +95,11 @@ def main():
     gamma_c = p_c / dt
 
     print(f"\nestimated crossing p_c ~ {p_c:.3f}  ->  gamma_c = p_c/dt ~ {gamma_c:.3f}")
-    print(f"arXiv:2503.22618 reports gamma_c ~ 0.013 (continuous-time, weak-meas)")
+    print(f"arXiv:2503.22618 reports gamma_c ~ 0.013 "
+          f"(continuous-time projective sigma^z)")
     print(f"ratio gamma_c(ours)/0.013 ~ {gamma_c/0.013:.1f}  "
-          f"(protocol differs: projective per-step vs continuous weak)")
+          f"(protocol/estimator differ: stroboscopic per-step vs "
+          f"continuous-time; crossing vs FSS)")
 
     os.makedirs("results", exist_ok=True)
     with open("results/gamma_mapping.json", "w") as f:
