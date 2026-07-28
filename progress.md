@@ -68,6 +68,29 @@ version: 1.0.0
 最タイト窓でも z≈2.4/2.8）、C_R と残差オフセットは無相関。本文（quantum版・PRXレガシー版）
 とS3/Appendix C に許容窓の明示開示＋頑健性段落を追加。ledger X1 追記。
 
+## Zenodo レコード 21336840 メタデータ修正（2026-07-28, 適用済み）
+- 積み残しだった公開レコードの誤メタデータを是正。DOI は不変（10.5281/zenodo.21336840）。
+  - title: 旧題「Chaotic states outperform...」→ 現行題「Scrambling, not athermality,...」
+  - description: 旧題＋死んだリンク hwakaura/scarcode → 現行題＋deeptell-inc/chaosec。
+    主張も本文スコープに合わせ「under every generic measurement」→「under every
+    measurement we test ... PXP scar subspace」＋exact-scar の但し書きを追加。
+  - notes: 「submitted to PRX Quantum」→「submitted to Quantum (quantum-journal.org)」
+  - related_identifiers: GitHub リポジトリを isSupplementTo で追加（従来 null）
+- 手段: `zenodo_deposit` に公開済みレコードの編集機能を追加（`--edit-record ID`）。
+  actions/edit → PUT metadata → actions/publish。ライブのメタデータを取得して
+  差分キーだけをパッチする方式（doi/publication_date/access_right は触らない）、
+  PUT 失敗時は actions/discard で自動ロールバック。`--dry-run` は読み取りのみで差分表示。
+- **未解決の別問題を検出**: 公開レコードに載っているファイル
+  `scarcode-repro-0.1.0.tar.gz`（7/13付）は**現行原稿を再現できない**。
+  本文が参照する 5 スクリプト（energy_window_robustness / casimir_variance /
+  kl_static / predictor / restyle_figures）が欠落し、Codex 修正も未反映。
+  公開済みレコードのファイルは凍結されているため、差し替えには**新バージョン発行**
+  （新しい version DOI が発行される）が必要。候補 `scarcode-repro-0.1.1.tar.gz` を
+  `git archive HEAD` で作成し、クリーン venv で `pip install -e .` + pytest 11/11、
+  5 スクリプト全存在を検証済み。**発行はユーザー判断待ち**。
+  なお concept DOI は 10.5281/zenodo.21336839（常に最新版を指す）。本文と README は
+  version DOI 21336840 を引用している。
+
 ## 投稿バンドル整備 zip版 + PyPI 配布物再ビルド（2026-07-28）
 - Finder で作られた `paper/quantum/arxiv.zip` は arXiv に出せない構成だった:
   ネストした `arxiv/` ディレクトリ、`__MACOSX/._*` 12件、`main.pdf`（arXiv はソース

@@ -12,7 +12,7 @@
       "affiliation": "QIRI (Quantum Integrated Research Institute Inc.), Tokyo, Japan"
     }
   ],
-  "description": "<p>Reproduction package for the paper <em>Scrambling, not athermality, protects quantum information under generic measurement: chaotic states outperform quantum many-body scar codes</em> (H. Wakaura and T. Tanimae). Contains the <code>scarcode</code> Python package (PXP and spin-1 Schecter&ndash;Iadecola models, monitored-trajectory reference-qubit coherent information, static Knill&ndash;Laflamme diagnostics, emergent-su(2) Casimir), the paper-reproduction drivers, a pytest benchmark suite, all figure data, and the LaTeX manuscript source. One command regenerates every figure. Main finding: under every generic measurement, chaotic thermal codes protect quantum information better than quantum-many-body-scar codes; an exactly solvable model isolates the Casimir variance as the single control parameter. MIT-licensed. Source repository: https://github.com/deeptell-inc/chaosec</p>",
+  "description": "<p>Reproduction package for the paper <em>Scrambling, not athermality, protects quantum information under generic measurement: chaotic states outperform quantum many-body scar codes</em> (H. Wakaura and T. Tanimae). Contains the <code>scarcode</code> Python package (PXP and spin-1 Schecter&ndash;Iadecola models, monitored-trajectory reference-qubit coherent information, static Knill&ndash;Laflamme diagnostics, emergent-su(2) Casimir), the paper-reproduction drivers, a pytest benchmark suite, all figure data, and the LaTeX manuscript source. One command regenerates every figure. Main finding: under every measurement we test, a logical qubit encoded in the PXP scar subspace carries less coherent information than an energy-matched thermal encoding, so scrambling rather than athermality is what protects encoded information; an exactly solvable spin-1 model isolates the Casimir variance as the control parameter, and only zero-variance exact scars are protected. MIT-licensed. Source repository: https://github.com/deeptell-inc/chaosec</p>",
   "keywords": [
     "quantum information",
     "measurement-induced phase transition",
@@ -23,7 +23,14 @@
     "reproducibility"
   ],
   "license": "mit",
-  "notes": "Software reproduction package archived alongside the article submitted to PRX Quantum. Regenerate results with `pip install -e .` then the drivers in scripts/.",
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/deeptell-inc/chaosec",
+      "relation": "isSupplementTo",
+      "scheme": "url"
+    }
+  ],
+  "notes": "Software reproduction package for the article of the same name, submitted to Quantum (quantum-journal.org). Regenerate results with `pip install -e .` then the drivers in scripts/.",
   "files": [
     "/Users/deeptell01/Documents/alterego/personal/chaosec/scarcode-repro-0.1.0.tar.gz"
   ]
