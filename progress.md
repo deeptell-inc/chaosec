@@ -68,5 +68,16 @@ version: 1.0.0
 最タイト窓でも z≈2.4/2.8）、C_R と残差オフセットは無相関。本文（quantum版・PRXレガシー版）
 とS3/Appendix C に許容窓の明示開示＋頑健性段落を追加。ledger X1 追記。
 
+## Abstract 字数制限対応（2026-07-28）
+arXiv の abstract 欄上限 1920 文字に対し 2054 文字（プレーン換算 2020）で超過していた。
+7要素構造（大→小→大）と全数値主張を保持したまま 1869 文字（プレーン 1850）へ圧縮:
+要素(1)"entanglement" 冗語削除、(2)スカー定義を同格節に統合、(3)主語を代名詞化、
+(5)"scar disadvantage"→"deficit"・関係節を制限節化、(6)spin-1 文と機構文を統合、
+(7)"These results establish"→断定形。quantum版・arxiv版・PRXレガシー版の3ファイルに反映。
+貼付用プレーンテキストを `paper/quantum/abstract.txt` として追加（SUBMISSION.md に手順記載）。
+再ビルド: quantum 11pp / arxiv クリーンルーム 11pp・引用34件解決 / legacy 6pp、いずれもエラー0。
+バンドル再生成時の落とし穴2件を SUBMISSION.md に明記（arxiv/ で bibtex 実行禁止、
+tar は明示ファイル列挙 — `--exclude='*.pdf'` は図5件を落とす）。
+
 ## 敵対的パネル（2026-07-16, /adversarial-panel）
 2名（Sonnet=再現検証・Opus=文献/論理、3ラウンド）。合意: 荷重数値約20項目は4桁一致で再現、文献帰属・数学は健全。検出欠陥5件（18.1孤児、L=12 band文言、spin-1≲0.1、KL比孤児、γ_c循環説明）→ **全件修正済み**（casimir_variance.py・kl_static.py新設、本文/補足/カバレター/criteria修正、全6文書クリーン再コンパイル）。パネル確度: 修正前82/100 → 修正後の想定〜95。
