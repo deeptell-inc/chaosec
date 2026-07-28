@@ -10,13 +10,18 @@ criticism); transferred content unchanged, reformatted to `quantumarticle`.
 |---|---|
 | `main.tex` / `main.pdf` | Manuscript, quantumarticle class, 11 pp. Supplement is merged as Appendices A–I (Quantum has no length limit and prefers self-contained papers). |
 | `cover_letter.tex` / `.pdf` | Cover letter addressed to the Editors of Quantum (2 pp, 8 suggested referees). |
-| `arxiv/` + `arxiv-v1.tar.gz` | Self-contained arXiv source bundle (main.tex + main.bbl + 9 figures). Verified to compile standalone with pdflatex. |
+| `arxiv/` + `arxiv-v1.tar.gz` + `arxiv-v1.zip` | Self-contained arXiv source bundle (main.tex + main.bbl + 9 figures = 11 files, flat, no directory). Both archives hold the same 11 files and are each verified to compile standalone with pdflatex; upload either one. |
 | `abstract.txt` | Plain-text abstract for the arXiv/Scholastica abstract field, **1850 characters** (arXiv's hard limit is 1920). Paste this file rather than re-flattening the LaTeX. |
 | `../refs.bib` | Shared bibliography — now with a `doi` field on **all 34 entries** (Quantum requires DOI-hyperlinked references; `quantum.bst` renders them). |
 
 ## Step 1 — arXiv (REQUIRED first; Quantum only accepts arXiv submissions)
 
-1. Upload `arxiv-v1.tar.gz` at https://arxiv.org/submit
+1. Upload `arxiv-v1.tar.gz` (or `arxiv-v1.zip`) at https://arxiv.org/submit
+   - **Do not zip the `arxiv/` folder from the Finder.** That produces a
+     nested `arxiv/` directory plus `__MACOSX/._*` AppleDouble entries, and it
+     sweeps in `main.pdf` and the `.aux/.log/.out/.blg` files. arXiv rejects a
+     source package that also contains the compiled PDF, and the stray `.aux`
+     confuses AutoTeX. Use the prepared archives, which are flat and clean.
    - Primary category: `quant-ph`; suggested cross-lists: `cond-mat.stat-mech`, `cond-mat.str-el`
    - License: the arXiv default non-exclusive license is sufficient (Quantum
      publishes the journal version CC BY 4.0 on top of the arXiv posting).
@@ -60,9 +65,11 @@ Two traps worth remembering:
 - **Never run `bibtex` inside `arxiv/`.** There is no `refs.bib` there, so it
   overwrites the shipped `main.bbl` with a 3-line stub and every citation goes
   undefined. Only `pdflatex` runs in that directory.
-- **Tar the bundle with an explicit file list**, not `--exclude='*.pdf'` — five
-  of the nine figures are PDFs and a blanket exclude silently drops them. The
-  bundle must contain exactly 11 files.
+- **Archive the bundle with an explicit file list**, not `--exclude='*.pdf'` —
+  five of the nine figures are PDFs and a blanket exclude silently drops them.
+  The bundle must contain exactly 11 files, flat. The zip form is
+  `zip -j -X arxiv-v1.zip arxiv/main.tex arxiv/main.bbl arxiv/*.pdf arxiv/*.png`
+  minus `main.pdf`; `-j` flattens and `-X` drops the macOS extra attributes.
 
 Class quirk: `\pdfoutput=1` must sit AFTER `\documentclass` and before the first
 `\usepackage` (the class deliberately resets it to 0 and checks).

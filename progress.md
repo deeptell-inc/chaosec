@@ -68,6 +68,19 @@ version: 1.0.0
 最タイト窓でも z≈2.4/2.8）、C_R と残差オフセットは無相関。本文（quantum版・PRXレガシー版）
 とS3/Appendix C に許容窓の明示開示＋頑健性段落を追加。ledger X1 追記。
 
+## 投稿バンドル整備 zip版 + PyPI 配布物再ビルド（2026-07-28）
+- Finder で作られた `paper/quantum/arxiv.zip` は arXiv に出せない構成だった:
+  ネストした `arxiv/` ディレクトリ、`__MACOSX/._*` 12件、`main.pdf`（arXiv はソース
+  パッケージ内の完成PDFを拒否）、`.aux/.log/.out/.blg`（AutoTeX 誤動作要因）。
+- 対処: `arxiv-v1.zip` を新規作成（`zip -j -X`、tar.gz と同一の11ファイル・フラット）。
+  展開してクリーンルームで pdflatex 2回 → 11pp・引用34件解決・エラー0 を確認。
+  SUBMISSION.md に「Finder で zip しない」注意と zip 生成コマンドを追記。
+- PyPI: dist/ が 7/10 付でパネル+Codex 修正（states.py の `return_indices`）を含んで
+  いなかったため再ビルド。`twine check` 両アーティファクト PASSED、新規 venv への
+  wheel インストールで import・`return_indices` 存在を確認。PyPI 上に scarcode は
+  未登録（/pypi/scarcode/json が 404）なので 0.1.0 のまま初回アップロード可。
+  **アップロードは未実施（要ユーザー操作）**。
+
 ## Abstract 字数制限対応（2026-07-28）
 arXiv の abstract 欄上限 1920 文字に対し 2054 文字（プレーン換算 2020）で超過していた。
 7要素構造（大→小→大）と全数値主張を保持したまま 1869 文字（プレーン 1850）へ圧縮:
