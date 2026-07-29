@@ -62,22 +62,32 @@ def fig_crossover():
 def fig_scaling():
     d = _load("results/ensemble_scaling.json")
     l18 = _load("results/L18_check.json")
+    lo = _load("results/nature_panel_fixes.json")["lowrate_scaling"]
     rows = d["rows"]
     L = np.array([r["L"] for r in rows] + [l18["L"]])
-    fig, ax = plt.subplots(figsize=(W, 2.6))
-    ax.axhline(0, color="k", lw=0.6)
+    Llo = np.array([r["L"] for r in lo])
+    fig, axes = plt.subplots(2, 1, figsize=(W, 4.4), sharex=True)
+    for ax in axes:
+        ax.axhline(0, color="k", lw=0.6)
     for meas, c, mk, ls, lab in [("localZ", "0.35", "s", "--", "local $Z$"),
                                  ("collective", "C2", "o", "-", "collective")]:
+        dvlo = np.array([r[meas]["dCR"] for r in lo])
+        blo = np.array([r[meas]["therm_std"] for r in lo])
+        axes[0].plot(Llo, dvlo, marker=mk, ls=ls, color=c, label=lab)
+        axes[0].fill_between(Llo, dvlo - blo, dvlo + blo, color=c, alpha=0.18)
         dv = np.array([r[meas]["dCR"] for r in rows]
                       + [l18["rows"][meas]["dCR"]])
         b = np.array([r[meas]["CR_therm_std"] for r in rows]
                      + [l18["rows"][meas]["CR_therm_std"]])
-        ax.plot(L, dv, marker=mk, ls=ls, color=c, label=lab)
-        ax.fill_between(L, dv - b, dv + b, color=c, alpha=0.18)
-    ax.set_xlabel("system size $L$")
-    ax.set_ylabel(r"$\Delta C_R$ at $p=0.10$")
-    ax.set_xticks(L)
-    ax.legend(loc="center left")
+        axes[1].plot(L, dv, marker=mk, ls=ls, color=c, label=lab)
+        axes[1].fill_between(L, dv - b, dv + b, color=c, alpha=0.18)
+    _panel_label(axes[0], "(a) $p=0.02$")
+    _panel_label(axes[1], "(b) $p=0.10$")
+    axes[1].set_xlabel("system size $L$")
+    axes[0].set_ylabel(r"$\Delta C_R$")
+    axes[1].set_ylabel(r"$\Delta C_R$")
+    axes[1].set_xticks(L)
+    axes[0].legend(loc="lower left")
     ax.grid(True)
     fig.tight_layout()
     fig.savefig("results/ensemble_scaling.pdf")

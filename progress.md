@@ -187,3 +187,18 @@ tar は明示ファイル列挙 — `--exclude='*.pdf'` は図5件を落とす�
 
 ## 敵対的パネル（2026-07-16, /adversarial-panel）
 2名（Sonnet=再現検証・Opus=文献/論理、3ラウンド）。合意: 荷重数値約20項目は4桁一致で再現、文献帰属・数学は健全。検出欠陥5件（18.1孤児、L=12 band文言、spin-1≲0.1、KL比孤児、γ_c循環説明）→ **全件修正済み**（casimir_variance.py・kl_static.py新設、本文/補足/カバレター/criteria修正、全6文書クリーン再コンパイル）。パネル確度: 修正前82/100 → 修正後の想定〜95。
+
+## Nature級パネル第3回（2026-07-28, 5軸採点→修正・データ補完）
+- 採点: Codex 6.5/6.0/6.0/7.0/5.5、Opus 5/6/6/5/4。合意判定「専門誌（Quantum等）適正」。
+- 最大の改稿（Opus P1・両者収束）: localZ 純度スキャンを主結果に昇格（新節3.6+新図
+  purity_trend.pdf）、**改題**「Algebraic leak and thermal hybridization, not athermality,
+  defeat quantum many-body scar codes under generic measurement」。
+- 新事実2件: (1) 隣接段 canonical 符号は fine-J² でスカー勝ち（+0.19, CI排除、基準の予言どおり）
+  → abstract を generic スコープに。(2) binned-Casimir の救済はビン幾何アーティファクト
+  （±1シフトで完全入替）→ R12 を撤回、§3.5 をストレステスト込みの正直な記述に。
+- データ補完: 5シード監査（全点全シード負）、p=0.02 Lスキャン（local 欠損 −0.16→−0.38 と
+  L 成長、Fig 2 を2パネル化）、Casimir チャネル階層 CI、binning 対照3種。
+- その他: 相図の非単調 ℓ 依存を開示（「deepens with ℓ」撤回）、リーク反例開示、
+  推定量記述の算術修正、App C 数値の出所統一。ledger R20–R23。
+- 最終状態: 15pp・abstract 1919/1920（プレーン1899）・エラー0・pytest 11/11・
+  バンドル12ファイル（purity_trend.pdf 追加）クリーンルーム検証済み。

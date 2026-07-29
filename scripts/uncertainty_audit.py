@@ -105,7 +105,59 @@ def part_b():
     return out
 
 
+
+
+def part_c():
+    """Hierarchical CIs for the Casimir channels at the canonical rung
+    (fine-resolution J^2 and multiplet-binned J^2), Nature-panel finding 1."""
+    from scarcode.su2 import casimir
+    model = PXPModel(14)
+    spec = diagonalize(model)
+    identify_scars(spec, L=14)
+    U = (spec.vectors * np.exp(-1j * spec.energies * DT)) @ spec.vectors.conj().T
+    J2 = casimir(model)
+    s0, s1, (k0, k1) = scar_code(spec)
+    therm = thermal_ensemble(spec, (spec.energies[k0], spec.energies[k1]),
+                             window=0.5, kmax=KMAX, seed=SEED)
+    mon_fine = MonitoredPXP(model, dt=DT, U=U, operator=J2)
+    mon_bin = MonitoredPXP(model, dt=DT, U=U, operator=J2)
+    wO = np.sort(np.linalg.eigvalsh(J2))
+    targets = np.arange(0, 8) * np.arange(1, 9)
+    mon_bin.op_labels = np.array(
+        [int(np.argmin(np.abs(targets - x))) for x in wO])
+    out = []
+    for tag, mon in (("fineJ2", mon_fine), ("binnedJ2", mon_bin)):
+        for p in (0.04, 0.08, 0.12):
+            cfg = TrajectoryConfig(p=p, n_steps=40, dt=DT, measure="operator",
+                                   record_every=4)
+            o = mon.coherent_information(s0, s1, cfg, NTRAJ, SEED)
+            cs, cs_sem = o["C_R"], o["C_R_sem"]
+            pair_crs, pair_sems = [], []
+            for a, b in therm:
+                r = mon.coherent_information(a, b, cfg, NTRAJ, SEED)
+                pair_crs.append(r["C_R"])
+                pair_sems.append(r["C_R_sem"])
+            ci = _boot_ci(cs, cs_sem, pair_crs, pair_sems)
+            d = cs - float(np.mean(pair_crs))
+            out.append(dict(channel=tag, p=p, scar=cs, dCR=d, ci95=ci,
+                            n_pairs=len(pair_crs),
+                            excludes_zero=bool(ci[1] < 0 or ci[0] > 0)))
+            print(f"[c] {tag} p={p:.2f}: dCR={d:+.4f} "
+                  f"95%CI=[{ci[0]:+.4f},{ci[1]:+.4f}] "
+                  f"excl0={out[-1]['excludes_zero']}")
+    return out
+
+
 def main():
+    import sys
+    if "--part-c" in sys.argv:
+        data = {}
+        if os.path.exists(OUT):
+            data = json.load(open(OUT))
+        data["casimir_ci"] = part_c()
+        json.dump(data, open(OUT, "w"), indent=1)
+        print("wrote", OUT)
+        return
     data = dict(depth_scan_p002=part_a(), headline_ci=part_b())
     json.dump(data, open(OUT, "w"), indent=1)
     print("wrote", OUT)

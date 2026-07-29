@@ -74,3 +74,12 @@ claim / 種別(数値·事実/引用帰属/因果/定義·用語/新規性) / �
 | R17 | 深さ頑健性: local p=0.10 の "+0.000" | 数値 | **PARTIALLY→修正** | 深さ160 で +7×10⁻⁵（符号反転、両符号 C_R∼10⁻⁴で無意味）と明示。p=0.02 の深さスキャン新設: local 欠損 −0.144/−0.151/−0.127 で深さ安定 → 「情報が残る領域では深さ頑健」と正確化 | 2026-07-28 | 有（低レート深さスキャン） |
 | R18 | ±1σ バンドによる符号判定 | 統計 | **PARTIALLY→修正** | 階層ブートストラップ（ペア再標本化＋軌道ノイズ伝播）を headline 3点に適用: L=14 local [−0.056,−0.024], collective [−0.317,−0.224], L=12 local [−0.042,−0.012] — 全てゼロ排除。バンドは記述統計と明記（scripts/uncertainty_audit.py） | 2026-07-28 | 有 |
 | R19 | Fig 2 の L=16 が別の二重項パートナー | 数値 | **PARTIALLY→開示** | B指摘確認: L=16 は overlap 順位反転で 2.639 を選択。両パートナーで再計算: canonical −0.066/−0.306, partner −0.034/−0.150 — 符号頑健・大きさ2×変動。Fig 2 キャプションに開示（scripts/l16_partner_check.py） | 2026-07-28 | 有（両パートナー実測） |
+
+## 追記（2026-07-28 Nature級パネル第3回後の是正、S17続き）
+5軸採点: A=Codex 6.5/6.0/6.0/7.0/5.5、B=Opus 5/6/6/5/4（いずれも「専門誌が適正、Nature級未達」で一致）。
+| # | claim | 種別 | 判定 | 出典 | 確認日 | 反証探索 |
+|---|---|---|---|---|---|---|
+| R20 | 旧タイトル「Scrambling, not athermality, protects...」 | 表現/機構 | **CONTRADICTED→改題** | 両者一致（確度88/97）: localZ の純度スキャンは純粋（=より athermal な）段ほど保護が良い単調系列（−0.069→+0.099, w=0.53→0.81, z≈7）で、タイトルの向きと逆。新タイトル「Algebraic leak and thermal hybridization, not athermality, defeat quantum many-body scar codes under generic measurement」、新節 3.6+主図 purity_trend.pdf に昇格（Opus P1: 追加計算ゼロの再フレーム） | 2026-07-28 | 有（クリーンプール再計算で傾向維持） |
+| R21 | 隣接段 canonical 符号 × fine-J²（新規, uncertainty_audit --part-c） | 数値 | **NEW RESULT** | fine-J² でスカーが有意に勝つ: dCR=+0.19/+0.15/+0.13, 95%CI 全てゼロ排除（独立シード +0.189 再確認）。2チャネル基準の予言どおり（BC=0.958 高重なり＋小リーク）。abstract を「every generic measurement; su(2)適合 Casimir のみ逆転」にスコープ、App C に encoding 依存小節 | 2026-07-28 | 有（独立シード再現） |
+| R22 | binned-Casimir「純度依存救済」（R12 の読み） | 機構 | **CONTRADICTED→撤回** | Opus P3 の binning 対照（nature_panel_fixes --part a）: 等幅5ビン/±1シフトで結果が完全に入替（−1シフトで canonical 含む全対が勝ち +0.10〜+0.31、+1シフトで救済消滅）。粗視化 Casimir はビン幾何支配 — 純度・分散の結論を支持しないと明記。purity 図は localZ 単独に変更 | 2026-07-28 | 有（3種の binning 実測） |
+| R23 | 統計・スコープ補完 | 数値 | **SUPPORTED（補強）** | (i) 5シード監査: L=12/14 local・L=14 collective 全シード負（プール −0.024/−0.033/−0.273）→ P6 の選択的報告疑義を解消。(ii) p=0.02 Lスキャン: 情報が残る領域で local 欠損 −0.16→−0.38 と L 単調成長 → Fig 2 を2パネル化（P4）。(iii) 相図の非単調 ℓ 依存＋プロトコル差を開示（P5=Codex#5, 確度100）。(iv) 「last quarter」=記録点20%/時間10% と正確化。(v) mechanism のリーク反例（leak 1.78, C_R 0.79）開示。(vi) App C の非同梱 20-pair 値→出荷12-pair 監査値に差替 | 2026-07-28 | 有 |
