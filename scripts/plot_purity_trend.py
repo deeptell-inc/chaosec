@@ -41,9 +41,12 @@ def main():
     for i, p in enumerate((0.04, 0.08, 0.12)):
         y = [r["modes"]["localZ"][i]["dCR"] for r in rows]
         ax.plot(w, y, "o-", color=colors[p], label=f"$p={p:.2f}$")
+    ax.set_ylim(-0.085, 0.115)
     ax.annotate("canonical rung", (w[0], -0.069),
-                xytext=(w[0] + 0.015, -0.095), fontsize=6.5, ha="left",
-                arrowprops=dict(arrowstyle="-", lw=0.5))
+                xytext=(w[0] + 0.035, -0.062), fontsize=6.5, ha="left",
+                va="center",
+                arrowprops=dict(arrowstyle="-", lw=0.5,
+                                shrinkA=2, shrinkB=3))
     ax.set_ylabel(r"$\Delta C_R$ (scar $-$ thermal), local $Z$")
     ax.grid(True)
     ax.legend(loc="upper left")
