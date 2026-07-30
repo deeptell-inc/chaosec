@@ -1,0 +1,125 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{parskip}
+\usepackage[colorlinks=true,allcolors=blue]{hyperref}
+
+\begin{document}
+
+\pagestyle{empty}
+
+\noindent Hikaru Wakaura and Taiki Tanimae\\
+QIRI (Quantum Integrated Research Institute Inc.)\\
+Tokyo 107-0061, Japan\\
+\href{mailto:h.wakaura@qiri.co.jp}{h.wakaura@qiri.co.jp} \quad ORCID: 0000-0001-8381-8323
+
+\vspace{1em}
+\noindent July 30, 2026
+
+\vspace{1em}
+\noindent To the Editors, \emph{Physical Review B}
+
+\vspace{1em}
+
+\noindent \textbf{Re: Submission of ``Algebraic leak and thermal hybridization,
+not athermality, defeat quantum many-body scar codes under generic
+measurement''}
+
+\vspace{0.5em}
+
+We submit for your consideration the manuscript above (regular article, two
+authors, twelve pages including nine appendices) together with an openly
+available simulation package that regenerates every figure with one command.
+
+\vspace{0.5em}
+
+% Paragraph 1: the question and the answer (PRB framing: eigenstate structure)
+Quantum many-body scars---non-thermal, weakly entangled, dynamically
+coherent eigenstates---are widely regarded as natural candidates for protected
+quantum memory. We test this expectation directly in the monitored-dynamics
+setting where information protection is sharply defined: encoding a logical
+qubit in the canonical PXP scar tower and computing its reference-qubit
+coherent information under projective monitoring, benchmarked against an
+energy-matched ensemble of thermal encodings. The scar code loses under
+every generic measurement we test---local, collective, and coarse-grained
+Casimir probes, across the full measurement-rate and block-size grid, with
+hierarchical-bootstrap confidence intervals excluding zero at every headline
+point---and where information survives, the local deficit \emph{grows} with
+system size ($-0.16$ to $-0.38$ for $L=10$ to $18$).
+
+% Paragraph 2: mechanism — the paper's real contribution
+The contribution beyond the negative result is mechanistic, and it is
+eigenstate-resolved in a way we believe will interest the PRB readership.
+Two independent structural liabilities are identified and separated:
+\emph{(i)} an algebraic leak---the emergent $\mathrm{su}(2)$ order parameter
+that generates the scar tower couples the code states, so any measurement
+aligned with it reads the logical qubit out; and \emph{(ii)} thermal
+hybridization---local-measurement protection rises monotonically with the
+forward-scattering-approximation purity of the rung, crossing over to a
+genuine scar \emph{advantage} at the purest rungs. Athermality per se is
+neither necessary nor sufficient: what decides the fate of a
+weak-ergodicity-breaking code is the interplay of its symmetry algebra with
+the measurement basis and its residual overlap with the thermal bulk. An
+exactly solvable spin-1 model with zero Casimir variance anchors the clean
+limit and correctly predicts the unique fine-tuned probe under which scars
+are rescued.
+
+\noindent Relative to prior work: \emph{(i)} the first head-to-head coding
+comparison of scar versus thermal subspaces under monitoring at the level of
+channel capacity rather than entanglement or fidelity; \emph{(ii)} a
+purity-resolved mechanism connecting eigenstate hybridization to operational
+code performance; \emph{(iii)} a documented sign-reversing baseline
+artifact---single-eigenstate references invert the conclusion; only ensemble
+averaging is safe---of direct relevance to anyone benchmarking codes against
+individual eigenstates.
+
+\vspace{0.5em}
+
+% Paragraph 3: why PRB
+\emph{Physical Review B} is a natural home for this work: quantum many-body
+scars, the PXP model, and measurement-induced phase transitions are core PRB
+topics, and the paper's central objects---eigenstate hybridization, emergent
+symmetry algebras, and their operational consequences---sit squarely in the
+condensed-matter tradition of connecting spectral structure to physical
+response. The manuscript is fully self-contained (appendices in place of a
+supplement), the data are archived with a DOI
+(\href{https://doi.org/10.5281/zenodo.21642056}{10.5281/zenodo.21642056}), and
+the literature claims have been verified against primary sources.
+
+\vspace{0.5em}
+
+\noindent We suggest the following referees, all leading experts in
+measurement-induced dynamics, quantum error correction, or quantum many-body
+scars (institutional contact addresses are publicly listed):
+
+\begin{itemize}\itemsep2pt
+  \item Prof.\ Matthew P.~A.\ Fisher, University of California, Santa Barbara ---
+        measurement-induced transitions
+  \item Prof.\ Ehud Altman, University of California, Berkeley ---
+        error correction and monitored circuits
+  \item Dr.\ Michael J.~Gullans, NIST / University of Maryland ---
+        purification transitions
+  \item Prof.\ Vedika Khemani, Stanford University --- random and monitored
+        circuits
+  \item Prof.\ Adam Nahum, \'Ecole Normale Sup\'erieure, Paris --- entanglement
+        dynamics
+  \item Prof.\ Zlatko Papi\'c, University of Leeds --- quantum many-body scars
+  \item Prof.\ Maksym Serbyn, IST Austria --- quantum many-body scars
+  \item Dr.\ Sanjay Moudgalya, Technical University of Munich --- exact scars and
+        spectrum-generating algebras
+\end{itemize}
+
+\noindent We do not request the exclusion of any referee. This manuscript was
+previously considered at PRX Quantum, where it was returned at the editorial
+stage on selectivity grounds without technical criticism; it has since been
+substantially strengthened through three rounds of adversarial internal review
+(hierarchical-bootstrap confidence intervals, multi-seed audits, and a
+size-dependence analysis added).
+
+\vspace{1em}
+
+\noindent On behalf of both authors,\\
+Hikaru Wakaura\\
+QIRI (Quantum Integrated Research Institute Inc.), Tokyo 107-0061, Japan\\
+\href{mailto:h.wakaura@qiri.co.jp}{h.wakaura@qiri.co.jp}
+
+\end{document}

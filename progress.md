@@ -185,6 +185,17 @@ arXiv の abstract 欄上限 1920 文字に対し 2054 文字（プレーン換�
 バンドル再生成時の落とし穴2件を SUBMISSION.md に明記（arxiv/ で bibtex 実行禁止、
 tar は明示ファイル列挙 — `--exclude='*.pdf'` は図5件を落とす）。
 
+## S10 再訪 2回目: 投稿先を PRB に変更（2026-07-30）
+ユーザー決定: **Physical Review B**（Quantum 準備は完了済みのまま温存）。
+成果物: `paper/prb/` — REVTeX 4.2 版 main.tex（`[aps,prb,twocolumn]`、12pp、
+Appendix A–I 込み、エラー0・overfull 0・未定義参照0）、PRB 宛 cover_letter（2pp、
+PRX Quantum 履歴開示・査読者8名）、`submit/` + `prb-submit.tar.gz`（13ファイル、
+単体コンパイル検証済 12pp）、SUBMISSION.md（手順書・変換ノート）。
+変換要点: abstract を \maketitle 前へ／\orcid 削除（フォーム入力）／
+\acknowledgments を環境に／natbib・nameref 明示ロード撤去＋hyperref 追加／
+apsrev4-2。abstract.txt は現原稿と同一内容を検証済（1,899字）。
+**承認ゲート（未実施）**: APS ポータルでの実投稿はユーザー操作。
+
 ## 敵対的パネル（2026-07-16, /adversarial-panel）
 2名（Sonnet=再現検証・Opus=文献/論理、3ラウンド）。合意: 荷重数値約20項目は4桁一致で再現、文献帰属・数学は健全。検出欠陥5件（18.1孤児、L=12 band文言、spin-1≲0.1、KL比孤児、γ_c循環説明）→ **全件修正済み**（casimir_variance.py・kl_static.py新設、本文/補足/カバレター/criteria修正、全6文書クリーン再コンパイル）。パネル確度: 修正前82/100 → 修正後の想定〜95。
 
