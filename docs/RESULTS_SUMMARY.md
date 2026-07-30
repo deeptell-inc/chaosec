@@ -137,3 +137,96 @@ projective-per-step vs continuous-weak protocol difference. **Figure:**
 - Larger thermal ensembles everywhere would tighten error bars.
 - Paper needs: acknowledgments/funding, real Zenodo DOI, referee emails.
 - Verify PyPI name `scarcode` is free before upload.
+
+---
+
+# UPDATE 2026-07-27/28 — venue pivot, three adversarial panels, retitle
+
+The sections above describe the 2026-07-10 state (PRX Quantum target, "scrambling
+not athermality" framing). Everything below supersedes where it conflicts.
+
+## 11. Venue: PRX Quantum → Quantum
+
+PRX Quantum desk-rejected 2026-07-27 (selectivity only, no technical criticism).
+New venue: **Quantum (quantum-journal.org)**, arXiv-first (Scholastica takes an
+arXiv ID). Canonical manuscript is now **`paper/quantum/main.tex`**
+(quantumarticle, 15 pp, supplement merged as Appendices A–I). The legacy PRX
+pair `paper/main.tex` + `supplement.tex` is **frozen pre-panel** and no longer
+maintained. Bundles: `paper/quantum/arxiv-v1.tar.gz` and `.zip` (12 files,
+clean-room verified 15 pp / 0 errors). `paper/quantum/abstract.txt` = paste-ready
+plain abstract, 1,899 chars (arXiv limit 1,920; do NOT paste from main.tex —
+its comment lines push it over the limit).
+
+## 12. What three rounds of adversarial review changed (ledger X1, R1–R23)
+
+Panels: Codex CLI + Claude Opus, independent, all findings verified by
+reproduction before fixing. claims-ledger.md is the authoritative record.
+
+**Survived everything (now CI-backed):**
+- The canonical (adjacent-rung) PXP scar code loses to the energy-matched
+  thermal ensemble under **every generic measurement**: local, collective,
+  block sums across the whole (p,ℓ) grid. Hierarchical bootstrap 95% CIs
+  exclude zero at all headline points, incl. the marginal L=12 local point;
+  a 5-seed audit finds every seed negative.
+- NEW, stronger: at p=0.02 (where info survives) the local deficit **grows
+  with size**: −0.16 → −0.38 for L=10→18 (Fig. 2 now two panels).
+- Depth-robust where information survives added depth (p=0.02: −0.14/−0.15/−0.13
+  at depths 40/80/160); C_R is disclosed as a fixed-depth estimator (last 2 of
+  10 records, t∈[21.6,24]), not an asymptotic capacity.
+
+**Corrected / retracted:**
+- "Irreducible Casimir variance" (R1): Var J² is a **hybridization** diagnostic
+  (47.6→0.89 along the FSA tower); canonical rungs are the *most* hybridized.
+- "Deficit tracks the excess variance" (R11): fine-J² has an effectively
+  nondegenerate spectrum → destroys ANY 2-dim chiral code; scar C_R was
+  rung-independent to 13 digits; the apparent trend was thermal-side noise.
+- "Multiplet-binned Casimir rescues purer rungs" (R22): bin-geometry artifact —
+  shifting j(j+1) boundaries by ±1 flips all outcomes. Retracted.
+- γ_c "volume-to-area crossing" (R5): not resolved at our sizes (density falls
+  monotonically with L at every p). Now order-of-magnitude only.
+- spin-1 "changes sign as p grows" (R4): L=8 rerun with 20 pairs stays positive
+  (+0.20/+0.10/+0.08); exact scars' local low-rate advantage is **open at scale**.
+- Phase diagram "deepens with ℓ": non-monotone (even-ℓ milder). Fixed.
+
+**New results the panels forced into existence:**
+- **Purity scan (the new headline mechanism)**: under local Z, ΔC_R rises
+  monotonically with FSA weight, crossing to a scar **advantage** near w≈0.65
+  (−0.069→+0.099 at p=0.04, z≈7 at the purest rung). Athermality is not the
+  liability — hybridization is. New Fig. `purity_trend.pdf` + section.
+- **Fine-J² on the adjacent-rung code**: scar WINS (+0.19/+0.15/+0.13, CIs
+  exclude zero) — the su(2)-adapted probe fails to resolve the scar code
+  (BC=0.958, small leak), exactly as the two-channel criterion predicts.
+
+## 13. New title and thesis
+
+> **Algebraic leak and thermal hybridization, not athermality, defeat quantum
+> many-body scar codes under generic measurement**
+
+Two structural liabilities: (i) the emergent su(2) order parameter's logical
+leak (collective fragility, tower-wide); (ii) hybridization with the thermal
+bulk (local/Casimir degradation, maximal exactly at the experimentally
+accessed rungs). The spin-1 exact-scar model anchors the zero-variance limit.
+Nature-style scoring (Codex 6.5/6.0/6.0/7.0/5.5, Opus 5/6/6/5/4): specialist
+journal appropriate; Nature-tier blocked by lack of interventional causality.
+
+## 14. Infrastructure completed since §9
+
+- **Zenodo**: metadata of 21336840 corrected via new `zenodo-deposit
+  --edit-record`; **v0.1.1 published** = the citable DOI
+  **10.5281/zenodo.21642056** (v0.1.0 archive couldn't reproduce the
+  manuscript — 5 cited scripts missing). Concept DOI 10.5281/zenodo.21336839.
+- **PyPI**: `scarcode` name free; dist/ rebuilt from current source,
+  twine-checked, fresh-venv verified. Upload still needs user creds.
+- Numbered section/subsection headings throughout (was run-in \paragraph's).
+- New audit scripts: `fsa_purity_audit.py`, `pure_rung_dfs.py`,
+  `pure_rung_dfs2.py`, `referee_audit.py`, `uncertainty_audit.py`,
+  `l16_partner_check.py`, `nature_panel_fixes.py`, `plot_purity_trend.py`,
+  `energy_window_robustness.py`.
+
+## 15. Remaining user actions
+
+1. arXiv: upload `arxiv-v1.tar.gz` (or `.zip`); abstract from `abstract.txt`
+   (in clipboard, 1,899 chars). quant-ph primary; cross-list
+   cond-mat.stat-mech, cond-mat.str-el.
+2. Scholastica: submit with the arXiv ID (see `paper/quantum/SUBMISSION.md`).
+3. Optional: `twine upload dist/*`; decide whether to keep the new title.

@@ -148,3 +148,66 @@ pdflatex main; bibtex main; pdflatex main; pdflatex main
   `gamma_mapping.py`→`gamma_mapping.png`;
   `dfs_rescue.py` + `spin1_dfs.py`→`spin1_rescue.png`;
   `extensive.py` + `plot_extensive.py`→`extensive.png`.
+
+---
+
+# UPDATE 2026-07-28 — how the last three days went (resume here)
+
+## 8. Decision trail since 07-10
+
+1. **PRX Quantum desk rejection** (07-27, selectivity, no technical content) →
+   user chose Quantum. Reformat to quantumarticle; supplement → Appendices A–I.
+   Class gotchas: `\pdfoutput=1` must sit AFTER `\documentclass`; preload
+   `nameref`; never run bibtex inside `arxiv/` (no refs.bib there — it nukes
+   main.bbl); tar bundles with explicit file lists, never `--exclude='*.pdf'`;
+   never Finder-zip the arxiv folder (`__MACOSX`, nested dir, main.pdf inside).
+2. **Codex adversarial review** found the "same two energies" overclaim →
+   `energy_window_robustness.py` proved window-independence (ledger X1).
+3. **Abstract > arXiv's 1920-char limit** twice; final abstract 1,919 tex /
+   1,899 plain. `abstract.txt` is the ONLY safe paste source.
+4. **Zenodo**: metadata fix (--edit-record) + **v0.1.1 new version**
+   (--new-version) because the archived v0.1.0 predated 5 cited scripts.
+   Cite 10.5281/zenodo.21642056 only.
+5. **Three /adversarial-panel rounds** (Codex + Opus, findings ledger R1–R23).
+   The big self-corrections, in causal order:
+   - Z2-overlap top-(L+1) picks the MOST hybridized central rungs (+ doublet
+     splittings); FSA tower reaches ±8.68 at L=14. Var J² tracks hybridization.
+   - fine-J² spectrum ≈ nondegenerate → any 2-dim chiral code dies on the
+     first shot → scar C_R rung-independent; earlier "variance controls the
+     deficit" was thermal-side noise. Binned-J² "rescue" died under ±1 bin
+     shifts (geometry artifact). What survived: chiral DFS candidates lose at
+     full resolution everywhere; adjacent-rung code WINS under fine-J²
+     (criterion-predicted, CI-backed).
+   - Purity scan became the paper's mechanism figure: local-Z protection rises
+     monotonically with FSA weight, sign flip at w≈0.65 → **retitled** to
+     "Algebraic leak and thermal hybridization, not athermality, defeat
+     quantum many-body scar codes under generic measurement". (Old title was
+     user-approved — flag before further changes.)
+   - Statistics hardened: hierarchical bootstrap CIs (pairs × trajectory
+     noise), 5-seed audit, p=0.02 size scan (local deficit GROWS with L),
+     L=16 doublet-partner check, pool hygiene (v1 rung scan had the scar
+     states inside their own thermal pools at outer rungs — always exclude
+     FSA-nearest eigenstates).
+6. **Figure collision fix**: purity_trend annotation vs x-ticks (4d75156).
+
+## 9. Where everything lives now
+
+- Canonical ms: `paper/quantum/main.tex` (15 pp), bundles `arxiv-v1.{tar.gz,zip}`
+  (12 files incl. `purity_trend.pdf`), `abstract.txt`, `SUBMISSION.md`.
+- Legacy PRX pair frozen pre-panel (do not edit; says so in progress.md).
+- Audit chain: claims-ledger.md (X1, R1–R23) + progress.md (per-event log) +
+  auto-memory `scar-vs-thermal-channel-capacity-mipt`.
+- Key JSONs: pure_rung_dfs2 (clean pools), uncertainty_audit (CIs + casimir_ci),
+  nature_panel_fixes (binning controls, multiseed, p=0.02 scan), fsa_purity,
+  referee_audit, l16_partner_check.
+
+## 10. Resume checklist
+
+1. User: paste abstract (clipboard/abstract.txt) + upload bundle to arXiv →
+   Scholastica with arXiv ID → per SUBMISSION.md.
+2. If the user wants the old title back: revert title + abstract elements
+   (4)(5)(7) + intro/conclusion two-liability phrasing; recount abstract ≤1920.
+3. If referees ask for causality: the panels' verdict is that an interventional
+   chaoticity/hybridization knob (deformed PXP) is the missing piece for a
+   Nature-tier claim; scripts and the FSA machinery are in place to build it.
+4. PyPI upload (`twine upload dist/*`) still pending user creds.
