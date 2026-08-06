@@ -196,6 +196,12 @@ PRX Quantum 履歴開示・査読者8名）、`submit/` + `prb-submit.tar.gz`（
 apsrev4-2。abstract.txt は現原稿と同一内容を検証済（1,899字）。
 **承認ゲート（未実施）**: APS ポータルでの実投稿はユーザー操作。
 
+## S14 再訪: PRB もデスクリジェクト（2026-07-31）
+- PRB 編集段階リジェクト。PRX Quantum と同一の定型文（selectivity 基準、技術的批判なし、
+  APS Open Science 移管オファー accode=BU16144）。
+- 判断: APS の選択性ゲートに2連続で弾かれた — 内容否定ではないが、選別型 APS 誌への
+  再挑戦は同じ結果になる公算大。次候補は Quantum（準備完了済み）> SciPost Physics。
+
 ## 敵対的パネル（2026-07-16, /adversarial-panel）
 2名（Sonnet=再現検証・Opus=文献/論理、3ラウンド）。合意: 荷重数値約20項目は4桁一致で再現、文献帰属・数学は健全。検出欠陥5件（18.1孤児、L=12 band文言、spin-1≲0.1、KL比孤児、γ_c循環説明）→ **全件修正済み**（casimir_variance.py・kl_static.py新設、本文/補足/カバレター/criteria修正、全6文書クリーン再コンパイル）。パネル確度: 修正前82/100 → 修正後の想定〜95。
 
