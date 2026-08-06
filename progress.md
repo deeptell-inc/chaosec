@@ -202,6 +202,14 @@ apsrev4-2。abstract.txt は現原稿と同一内容を検証済（1,899字）�
 - 判断: APS の選択性ゲートに2連続で弾かれた — 内容否定ではないが、選別型 APS 誌への
   再挑戦は同じ結果になる公算大。次候補は Quantum（準備完了済み）> SciPost Physics。
 
+## S10 再訪 3回目: 投稿先を SciPost Physics に変更（2026-07-31）
+ユーザー決定: **SciPost Physics**（PRX Quantum・PRB の2連続 selectivity デスクリジェクト後）。
+原稿ビルドは不要 — SciPost は arXiv ID 提出方式で、既存 `paper/quantum/arxiv-v1.tar.gz`
+がそのまま原稿。SciPost 専用クラスは採択後 production 段階のみ必要（今は変換しない）。
+成果物: `paper/scipost/` — submission_text.md（フォーム貼付用: Expectations 3+4 の
+充足主張・履歴開示・査読者8名・メタデータ）、SUBMISSION.md（手順書）。
+**承認ゲート（未実施）**: arXiv アップロード → scipost.org 提出はユーザー操作。
+
 ## 敵対的パネル（2026-07-16, /adversarial-panel）
 2名（Sonnet=再現検証・Opus=文献/論理、3ラウンド）。合意: 荷重数値約20項目は4桁一致で再現、文献帰属・数学は健全。検出欠陥5件（18.1孤児、L=12 band文言、spin-1≲0.1、KL比孤児、γ_c循環説明）→ **全件修正済み**（casimir_variance.py・kl_static.py新設、本文/補足/カバレター/criteria修正、全6文書クリーン再コンパイル）。パネル確度: 修正前82/100 → 修正後の想定〜95。
 
